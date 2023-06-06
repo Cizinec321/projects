@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+
+
+        {%block script%}
+        {%endblock%}
+        
+
+<title>MatchMe</title>
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<meta name="MatchMe" content="MatchMe">
+</head><body style="background-color:white;" data-new-gr-c-s-check-loaded="14.1045.0" data-gr-ext-installed="">
+        {% load static %}
+        <style>
+
+                .sunny .ui-widget-header {
+                color: black!important;}
+                
+        </style>
+        <link rel='stylesheet' href="{% static 'main_library_alt_m.css'%}">
+
+        <div class="posmenu" margin:0="" auto;="">
+                <div style="text-align: left;width: 49%;left: 0%;position:relative;display: inline-block;padding-left: 10px;padding-top: 1vh;">
+                <button class="external_fb"><a href=""></a></button>
+                <button class="external_tw"><a href=""></a></button>
+                <button class="external_inst"><a href=""></a></button>
+                </div>
+                <div style="text-align: left;width: 49%;left: 0%;position:relative;display: inline-block;padding-left: 10px;padding-top: 1vh;">
+                <p style="color: black;font-size:2vh;text-align: right;font-family: 'Quicksand';letter-spacing: 2px;"><b>contact@matchme.ro</b></p>
+                </div>
+
+
+        </div>
+        <div class="meta" margin:0="" auto;="">
+                {%block comm_div%}
+                {%endblock%}
+                {%block menu_div%}
+                {%endblock%}
+
+                <div id="offer1" class="dropdown-content" style="display:none">
+
+                        <p style="color: white;font-size:1em;text-align: left;font-family: 'Quicksand';letter-spacing: 2px;padding-left:30px;padding-top:30px;">
+                        Ȋți oferim:<br>
+                        - posibilitatea de a face parte din reţeaua MatchMe şi de a fi ales/aleasă ca potențial partener/ă<br><br>
+                        Ne bucurăm să te avem printre noi!<br><br>
+                        Înscrierea in baza de date MatchMe se face gratuit. Vrem sa îți oferim un spațiu de siguranța și protecție, așa încât avem nevoie de datele tale personale. Îți vom crea un cont și îți vom stabili profilul psihologic, iar pt asta vei avea de completat câteva chestionare. Te rugam sa accesezi linkul de înscriere.
+                        <br><br>
+                        Informațiile obținute despre tine sunt strict confidențiale și vor fi folosite exclusiv de catre psihologii și consilierii noștri in procesul de matchmaking. Dacă dorești sa intri in posesia rezultatelor obținute la chestionare, acestea vor fi disponibile si le vei primi pe adresa de mail in maxim 7 zile de la data achitării taxei de 150 lei. Rezultatele sunt validate științific și toate informațiile pot fi parte din procesul tău de autocunoaștere și dezvoltare personală.
+                        </p>
+                        <br>
+                        {%block offer_buttons1%}
+                        {%endblock%}
+
+                </div>
+
+                 <div id="offer2" class="dropdown-content" style="display:none">
+                        <p style="color: white;font-size:1em;text-align: left;font-family: 'Quicksand';letter-spacing: 2px;padding-left:30px;padding-top:30px;">
+                        Ȋți oferim:<br>
+                        - statutul de client pentru 3 luni<br>
+                        - ȋncepem căutarea celui mai potrivit partener/celei mai potrivite partenere (vom stabi o ȋntȃlnire faţă ȋn faţă pentru a te cunoaşte mai bine)<br>
+                        - profilul tău psihologic detaliat, cu informații validate științific care iţi vor fi utile in orice aspect/domeniu al vieții tale<br>
+                        <br>
+                        Abia aşteptăm să scriem primul capitol ȋmpreună!<br>
+                        <br><br>
+                        Îți vom crea un cont și îți vom stabili profilul psihologic, iar pt asta vei avea de completat câteva chestionare. Te rugam sa accesezi linkul de înscriere.
+                        <br><br>
+                        Informațiile obținute despre tine sunt strict confidențiale și vor fi folosite exclusiv de catre psihologii și consilierii noștri in procesul de matchmaking. Dacă dorești sa intri in posesia rezultatelor obținute la chestionare, acestea vor fi disponibile si le vei primi pe adresa de mail in maxim 7 zile de la data achitării taxei de 150 lei. Rezultatele sunt validate științific și toate informațiile pot fi parte din procesul tău de autocunoaștere și dezvoltare personală.
+                        </p>
+                        <br>
+                        {%block offer_buttons2%}
+                        {%endblock%}
+                 </div>
+
+                 <div id="offer3" class="dropdown-content" style="display:none">
+                        <p style="color: white;font-size:1em;text-align: left;font-family: 'Quicksand';letter-spacing: 2px;padding-left:30px;padding-top:30px;">
+                        Ȋți oferim:<br>
+                        - statutul de client 6 luni<br>
+                        - toate beneficiile pachetului precedent<br>
+                        - sfaturi personalizate pentru a-ţi creşte şansele de reuşită (sugestii legate de ȋmbrăcăminte, styling, modalităţi de abordare etc)<br>
+                        - discuţii şi consiliere pre-dating (2 ședințe)<br>
+                        - feedback după fiecare ȋntȃlnire şi sugestii personalizate<br>
+                        - discuţii şi consiliere post-dating (2 ședințe, individuale sau de cuplu)<br>
+                        - un voucher de 10% reducere la evenimentele organizate de compania noastră<br>
+                        <br>
+                        Noua ta viaţă ȋncepe acum!<br>
+                        <br><br>
+                        Îți vom crea un cont și îți vom stabili profilul psihologic, iar pt asta vei avea de completat câteva chestionare. Te rugam sa accesezi linkul de înscriere.
+                        <br><br>
+                        Informațiile obținute despre tine sunt strict confidențiale și vor fi folosite exclusiv de catre psihologii și consilierii noștri in procesul de matchmaking. Dacă dorești sa intri in posesia rezultatelor obținute la chestionare, acestea vor fi disponibile si le vei primi pe adresa de mail in maxim 7 zile de la data achitării taxei de 150 lei. Rezultatele sunt validate științific și toate informațiile pot fi parte din procesul tău de autocunoaștere și dezvoltare personală.
+                        </p>
+                        <br>
+                        {%block offer_buttons3%}
+                        {%endblock%}
+                 </div>
+
+                 <div id="carmen" class="dropdown-content" style="display:none">
+                     <div- style="height:94%; width:23%; left:0%; bottom:0%;display: inline-block;position:relative;">
+                        <p style="color: rgb(255,233,120);font-size:1.3em;text-align: left;font-family: 'Quicksand';letter-spacing: 5px;padding-left:30px;">
+                        <b>Carmen Ditiu</b><br>
+                        </p>
+                        <img src="{% static 'carmen_ditiu.jpeg'%}" width="361" height="361", style="padding-left:30px;">
+                        </div->
+                        <div- style="height:94%; width: 73%; left:25%; top:0%;display: inline-block;position:relative;">
+                        <p style="color: white;font-size:1em;text-align: left;font-family: 'Quicksand';letter-spacing: 2px;padding-left:30px;">
+
+                        Lucrez ca psihoterapeut de peste 10 ani şi mereu am identificat ȋn povestea celor care veneau la cabinet, un aspect comun: relaţia de cuplu. Fiecare situaţie de viaţă se construia ȋntr-un fel sau altul ȋn jurul relaţiei. Nu ȋntotdeauna era motivul evident care-l adusese pe client la mine, dar inevitabil ajungeam să ȋntreb: „Eşti ȋntr-o relaţie acum?, Și cum e ea?”. Și era, de multe ori ȋntr-un mare fel, sau nu era deloc...Suntem, ȋnainte de orice, fiinţe sociale. Starea noastră de bine, ȋn ansamblul ei, depinde ȋn mare măsură de relaţiile noastre, iar relaţia de cuplu este poate cea mai complexă şi mai provocatoare dintre toate tipurile de relaţii. Poate fi incredibil de valoroasă şi plină de satisfacţii, sau poate fi mediul ȋn care cele mai adȃnci traume ale noastre sunt activate constant şi retrăite.
+                        <br><br>
+                        Abilitatea noastră de a alege partenerul potrivit, face diferenţa. Dar, cum ȋl alegi dacă nu ai unde să-l găseşti?
+                        <br><br>
+                        Aşa s-a născut MatchMe, din nevoia reală de a găsi sufletul pereche, omul acela capabil să ne vadă dincolo de artificii sau măşti, omul alături de care să putem fi noi ȋnşine.
+
+                        </p>
+
+                        <br>
+
+                        <div style="left:30px;position:relative;">
+                        <input type="submit" value="Inchide" name="offer_1_close" class="astextblack" onclick="if (document.getElementById('carmen').style.display=== 'none'){document.getElementById('carmen').style.display = 'block'}else{document.getElementById('carmen').style.display = 'none'}" ;="">
+                        </div>
+                        </div>
+
+
+                </div>
+                <div id="daniel" class="dropdown-content" style="display:none">
+                        <p style="color: rgb(255,233,120);font-size:1.3em;text-align: left;font-family: 'Quicksand';letter-spacing: 5px;padding-left:30px;">
+                        <b>Daniel Rusu</b><br>
+                        </p>
+                        <img src="{% static 'daniela_rusu.jpeg'%}" style='height: 333px; width: 235px; padding-left:30px;'>
+                        <p style="color: white;font-size:1em;text-align: left;font-family: 'Quicksand';letter-spacing: 2px;padding-left:30px;">
+                                In curand...
+                        </p>
+
+                        <br>
+
+                        <div style="left:30px;position:relative;">
+                        <input type="submit" value="Inchide" name="offer_1_close" class="astextblack" onclick="if (document.getElementById('daniel').style.display=== 'none'){document.getElementById('daniel').style.display = 'block'}else{document.getElementById('daniel').style.display = 'none'}" ;="">
+                        </div>
+
+
+                </div>
+                <div id="camelia" class="dropdown-content" style="display:none">
+                        <p style="color: rgb(255,233,120);font-size:1.3em;text-align: left;font-family: 'Quicksand';letter-spacing: 5px;padding-left:30px;">
+
+                        <b>Camelia Brad</b><br><br>
+                        </p>
+                        <img src="{% static 'camelia_brad.jpeg'%}" width="307" height="410" style="padding-left:30px;">
+                        <p style="color: white;font-size:1em;text-align: left;font-family: 'Quicksand';letter-spacing: 2px;padding-left:30px;">
+
+                                In ultimii 10 ani am întâlnit sute de povesti de viața in cabinetul meu de psiholog. Atatea suflete mi-au fost încredințate… Unele in taina, cu durere și cu vocea stinsă, altele plutind pe râuri de lacrimi, sau zvacnind cu furie, ca văpaia focului. Vieti in cumpăna, oameni in deriva. Fete tinere la început de drum, mame cu copii de mâna sau femei trecute bine de tinerețe, rămase cu cuibul si cu inima goale. Bărbați suferind de dor sau de neputinta. Burlaci sau divorțati, mai tineri sau in floarea vârstei. Zbucium și deznădejde, panica, rusine, vinovatie, multă anxietate, tristete și dezarmare. Dar dintre toate, cel mai mult am întâlnit groaza de singurătate, deopotrivă la femei și la bărbați.
+                                <br><br>
+                                Obosiți si sătui de încercări, de intalniri “pe net”si de relații care se sfarsesc la fel de repede cum încep.
+                                Oameni care s-au resemnat ca nu vor smai gasi pe nimeni cu care sa împartă iubirea și bucuria vieții, care se tem ca durerea asta ii va lasa pustii pe dinăuntru, asteptand ca cineva sa-i vadă și pe ei. Sa le audă cântecul inimii, sa-i placa, sa-i aleagă și sa rămână acolo îndeajuns încât sa-i cunoască. Nu viseaza la sufletul pereche, doar la cineva cu care sa aiba o relație durabilă, frumoasa, așezată, “safe”.
+                                <br><br>
+                                Dacă te-ai regăsit și tu printre aceste rânduri, te astept in comunitatea MatchMe sa pornim împreuna intr-o călătorie cum n-ai mai avut!
+                                Eu sunt Camelia, psiholog, psihoterapeut și Coach, am 54 de ani și sunt aici pt tine sa te ajut sa-ți găsești perechea pe care ai renunțat s-o mai cauți.
+                                Acel Suflet cât mai potrivit tie.
+                        </p>
+
+                        <br>
+
+                        <div style="left:30px;position:relative;">
+                        <input type="submit" value="Inchide" name="offer_1_close" class="astextblack" onclick="if (document.getElementById('camelia').style.display=== 'none'){document.getElementById('camelia').style.display = 'block'}else{document.getElementById('camelia').style.display = 'none'}" ;="">
+                        </div>
+
+
+                </div>
+
+
+                <div id="pol_conf" class="dropdown-content" style="display:none">
+                        <p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 100px; margin-bottom: 0em; text-align: left;">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                <br><br>
+                                Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum[d] exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? [D]Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                        </p>
+
+
+                        <input type="submit" value="Inchide" name="offer_1_close" class="astextblack" onclick="if (document.getElementById('pol_conf').style.display=== 'none'){document.getElementById('pol_conf').style.display = 'block'}else{document.getElementById('pol_conf').style.display = 'none'}" ;="">
+
+
+
+                </div>
+
+                <div id="register" class="dropdown-content-form" style="display:none">
+                        {%block registerdiv%}
+                        {%endblock%}
+
+
+
+
+                </div>
+                <div id="login" class="dropdown-content-form" style="display:none">
+                        {%block logindiv%}
+                        {%endblock%}
+                </div>
+                {%block div3%}
+                {%endblock%}
+                <div class="main" margin:0="" auto;="">
+                        <div id="home" class="home" margin:0="" auto;="">
+
+                                <div class="sub1_home" margin:0="" auto;="">
+                                        <div class='logo_div'>
+                                        </div>
+                                        <div class='welcome_div'>
+                                        
+                                        <p class="phg">
+
+                                                Îți dorești o relație
+                                                pe termen lung?<br><br>
+                                                Suntem aici să te ajutăm 
+                                                să o construiești!
+                                        </p>
+                                        </div>
+
+
+                                </div>
+
+                        </div>
+                        <div id="desc" class="desc" margin:0="" auto;="">
+                                <div class="sub1_desc" margin:0="" auto;="">
+                                        <div class="sub2_desc_txt" margin:0="" auto;="">
+                                                <p class="ph">
+                                                                <b>CONCEPTUL MATCHME</b><br>
+                                                </p>
+                                        </div>
+                                        <div class="sub1_desc_txt" margin:0="" auto;="">
+                                        <p class="p1g">
+                                                Matchmaking-ul este un proces complex, de ȋnţelegere a personalităţii, a stilului de viaţă şi a valorilor unei persoane. Ȋnseamnă căutare activă, selecţie şi aducerea ȋmpreună a persoanelor cu dorinţe şi nevoi similare.
+                                                <br></p>
+                                                <p class="p1">
+                                                MatchMe are ca scop găsirea persoanei potrivite pentru tine!
+                                                <br>                                                
+                                                Conceptul a plecat de la nevoia tuturor de a găsi sufletul pereche, persoana capabilă să ne vadă dincolo de artificii sau măşti, omul alături de care să putem fi noi ȋnşine.
+                                                <br><br>
+                                                Ne adresăm ȋn exclusivitate celor care ȋşi doresc o relaţie pe termen lung şi sunt dispuşi să se angajeze activ ȋn acest proces.
+                                                <br><br>
+
+                                                <b style="color: rgba(255,196,41,1)">Conceptul MatchMe</b> ȋmbină experienţa noastră ȋn terapie individuală şi de cuplu, cu cele mai noi abordări şi metode de evaluare ştiinţifică a personalităţii, identificarea nevoilor reale şi conturarea unui profil psihologic complex.
+                                            </p>
+                                        </p>
+
+                                        </div>
+
+
+
+
+                                </div>
+                                <div class="sub2_desc" margin:0="" auto;="">
+
+                                        <div class="sub2_desc_txt" margin:0="" auto;="">
+
+                                        </div>
+
+                                        <div class="sub2_desc_logo" margin:0="" auto;="">
+                                        </div>
+
+
+                                </div>
+
+
+
+
+
+                        </div>
+                        <div id="Div1" margin:0="" auto;="">
+
+
+                                <div class="sub1_pos1" margin:0m ,="" auto;="">
+
+
+
+
+                                        <div class="offer" margin:0="" auto;="">
+                                                <div style="height:80%; overflow: auto;">
+                                                <p class="ph">
+                                                        <b>Eşti invitatul nostru</b><br>
+
+                                                 <p>
+
+                                                <p class="p1">
+                                                        Ȋți oferim posibilitatea de a face parte din
+                                                        reţeaua <b>MatchMe</b>
+                                                        şi de a fi ales/aleasă ca potențial
+                                                        partener/ă<br>
+                                                        Ne bucurăm să te avem
+                                                        printre noi!<br>
+
+                                                <p>
+
+
+                                                <p class="ph">
+                                                       ȊNSCRIERE GRATUITĂ<br>
+
+                                                </p>
+                                                </div>
+                                                <div style="height:20%; overflow: hidden;">
+                                                        <input type="submit" value="Inscrie-te aici" name="offer_2" class="astextgold" onclick="if (document.getElementById('register').style.display=== 'none'){document.getElementById('register').style.display = 'block'; document.getElementById('id_Nivel_serviciu').value='Nivel1'}else{document.getElementById('register').style.display = 'none'}" ;="">
+                                                </div>    
+                                        </div>
+
+                                </div>
+                                <div class="sub1_pos1" margin:0="" auto;="">
+
+                                        <div class="offer" margin:0="" auto;="">
+                                                <div style="height:80%; overflow: auto;">
+                                                <p class="ph">
+                                                        <b>Povestea ta ȋncepe aici</b><br>
+
+                                                 <p>
+
+                                                <p class="p1">
+
+                                                     
+                                                        &#9679 Ȋți oferim statutul de client pentru 3 luni<br>
+                                                        &#9679 ȋncepem căutarea celui mai potrivit partener/e<br>
+                                                        &#9679 Stabilim o ȋntȃlnire faţă ȋn faţă pentru a te cunoaşte mai bine<br>
+                                                        &#9679 Realizam profilul tău psihologic detaliat, cu informații validate științific care iţi vor fi utile in orice domeniu al vieții tale
+                                                     
+                                                        
+
+
+                                                <p>
+
+
+                                                <p class="ph">
+                                                        500 EURO<br>
+
+                                                <p>
+                                                </div>
+                                                <div style="height:20%; overflow: hidden;">
+                                                        <input type="submit" value="Inscrie-te aici" name="offer_2" class="astextgold" onclick="if (document.getElementById('register').style.display=== 'none'){document.getElementById('register').style.display = 'block'; document.getElementById('id_Nivel_serviciu').value='Nivel2'}else{document.getElementById('register').style.display = 'none'}" ;="">
+                                                </div>           
+                                        </div>
+
+
+                                </div>
+
+                                <div class="sub1_pos1" margin:0="" auto;="">
+
+                                        <div class="offer" margin:0="" auto;="">
+                                                <div style="height:80%; overflow: auto;">
+                                                <p class="ph">
+                                                        <b>Ghid pentru o nouă viaţă</b><br>
+
+                                                 <p>
+
+                                                <p class="p1">
+                                                        
+                                                                &#9679 Ȋți oferim statutul de client pentru 6 luni<br>
+                                                                &#9679 Toate beneficiile pachetului precedent<br>
+                                                                &#9679 Sugestii legate de ȋmbrăcăminte, styling, modalităţi de abordare <br>
+                                                                &#9679 consiliere pre-dating (2 ședințe)<br>
+                                                                &#9679 Feedback după fiecare ȋntȃlnire<br>
+                                                                &#9679 Consiliere post-dating (2 ședințe)<br>
+                                                                &#9679 Un voucher de 10% reducere la evenimentele organizate de compania noastră
+                                                     
+                                                        
+
+
+
+                                                <p>
+
+
+                                                <p class="ph">
+                                                        1000 EURO<br>
+
+                                                <p>
+                                                </div>
+                                                <div style="height:20%; overflow: hidden;">
+                                                        <input type="submit" value="Inscrie-te aici" name="offer_2" class="astextgold" onclick="if (document.getElementById('register').style.display=== 'none'){document.getElementById('register').style.display = 'block'; document.getElementById('id_Nivel_serviciu').value='Nivel3'}else{document.getElementById('register').style.display = 'none'}" ;="">
+                                                </div>        
+                                        </div>
+
+                                </div>
+                        </div>
+                        <div id="aboutus" margin:0="" auto;="">
+
+                                
+                                <div class="aboutus_pos1" margin:0="" auto;="">
+                                                <div class="checkmark_text_long" margin:0="" auto;="">
+                                                        <p class="phg">
+                                                                DE CE SĂ NE ALEGI PE NOI?<br>
+
+                                                         <p>
+                                                                <p class="ph">
+                                                                        pentru că:
+                                                                </p>
+
+                                                </div>
+
+                                                <div class="checkmark" margin:0="" auto;="">
+
+
+                                                </div>
+                                                <div class="checkmark_text" margin:0="" auto;="">
+                                                        <p class="phls">
+                                                                eşti pregătit să faci cea mai utilă investiție ȋn prezentul și viitorul tău relațional
+                                                        </p>
+
+                                                </div>
+
+
+
+
+
+
+                                                <div class="checkmark" margin:0="" auto;="">
+
+
+                                                </div>
+                                                <div class="checkmark_text" margin:0="" auto;="">
+                                                        <p class="phls">
+                                                                intelegi cât este de valoros sa ai un matchmaker care sa lucreze cu tine și pentru tine
+                                                        </p>
+
+                                                </div>
+
+
+
+
+                                                <div class="checkmark" margin:0="" auto;="">
+
+
+                                                </div>
+                                                <div class="checkmark_text" margin:0="" auto;="">
+                                                        <p class="phls">
+                                                                vrei sa ai sentimentul de siguranța de la prima întâlnire
+                                                        </p>
+
+                                                </div>
+
+
+
+                                </div>
+
+                                <div class="aboutus_pos2" margin:0="" auto;="">
+                                        <div class="aboutus_pos2_video" margin:0="" auto;="">
+                                                <video autoplay muted loop id="aboutus_pos2_video_round" style="height: 100%;">
+                                                        <source src="{% static 'aboutus_pos2_video.mp4'%}" type="video/mp4">
+                                                </video>
+
+                                        </div>
+
+                                </div>
+
+
+                        </div>
+
+                        <div id="Div2" margin:0="" auto;="">
+                                
+                                <div class="sub2_pos2" margin:0="" auto;="">
+                                        <div class="sub2_pos21" margin:0="" auto;="">
+                                                <div class="sub2_pos21_pic" margin:0="" auto;="">
+                                                        <img src="{% static 'carmen_ditiu.jpeg'%}" style='height: 100%; width: 100%; object-fit: contain' >
+
+
+                                                </div>
+                                                <div class="sub2_pos21_text" margin:0="" auto;="">
+
+                                                        <div class="sub2_pos21_descriere" margin:0="" auto;="">
+                                                                <p class="p2l">
+                                                                        Lucrez ca psihoterapeut de peste 10 ani şi mereu am identificat
+                                                                        ȋn povestea celor care veneau la cabinet, un aspect comun:
+                                                                        relaţia de cuplu. Fiecare situaţie de viaţă se construia ȋntr-un fel
+                                                                        sau altul ȋn jurul relaţiei
+
+                                                                        </p>
+
+
+                                                                <p class="p2hl">
+                                                                        psiholog CARMEN DIȚIU<br>
+
+                                                                 <p>
+
+
+                                                        </div>
+
+
+                                                </div>
+
+
+
+
+                                        </div>
+                                        <div class="sub2_pos21" margin:0="" auto;="">
+                                                <div class="sub2_pos21_pic" margin:0="" auto;="">
+                                                        <img src="{% static 'camelia_brad.jpeg'%}" style='height: 100%; width: 100%; object-fit: contain'>
+
+                                                </div>
+                                                <div class="sub2_pos21_text" margin:0="" auto;="">
+
+                                                        <div class="sub2_pos21_descriere" margin:0="" auto;="">
+                                                                        <p class="p2l">
+                                                                        Eu sunt Camelia, psiholog, psihoterapeut şi coach. Am 54 de ani
+                                                                        și sunt aici pentru tine sa te ajut sa-ți găsești perechea pe care
+                                                                        ai renunțat s-o mai cauți.<br>
+                                                                        Acel Suflet cât mai potrivit tie.
+                                                                        
+                                                                        </p>
+                                                                        <p class="p2hl">
+                                                                                psiholog CAMELIA NICOALESCU-BRAD<br>
+        
+                                                                         <p>
+
+                                                        </div>
+
+
+
+
+                                                </div>
+
+
+
+
+                                        </div>
+                                        <div class="sub2_pos21" margin:0="" auto;="">
+                                                <div class="sub2_pos21_pic" margin:0="" auto;="">
+                                                        <img src="{% static 'daniel_rusu.jpg'%}" style='height: 100%; width: 100%; object-fit: contain'>
+
+                                                </div>
+                                                <div class="sub2_pos21_text" margin:0="" auto;="">
+
+                                                        <div class="sub2_pos21_descriere" margin:0="" auto;="">
+                                                                <p class="p2l">
+                                                                        Mă numesc Daniel Rusu, sunt consilier de dezvoltare personala
+                                                                        si orientare în carieră, cofondator al proiectului Jurnal de Cuplu
+                                                                        si consilier relațional cu o experiență de peste 7 ani în lucrul cu
+                                                                        cuplurile, pe drumul dezvoltării și relaționării conștiente și
+                                                                        armonioase.
+                                                                
+                                                                        </p>
+
+                                                                <p class="p2hl">
+                                                                        consilier terapie de cuplu DANIEL RUSU<br>
+
+                                                                 <p>
+
+                                                        </div>
+                                                </div>
+
+
+
+
+
+                                        </div>
+
+                                        <div class="sub2_pos21" margin:0="" auto;="">
+                                                <form method="post">{% csrf_token %}
+                                                        <input type="submit" value="DESCOPERĂ MAI MULT" name="more" class="astextgold">
+                                                </form>
+
+
+
+
+
+                                        </div>
+
+                                </div>
+
+
+
+                        </div>
+
+
+
+                        <div id="Div4" margin:0="" auto;="" style="overflow:hidden;">
+
+                                                <div class="sub1_pos4" margin:0="" auto;="">
+
+                                                        <div class="sub1_pos41" margin:0="" auto;="">
+                                                                <p class="ph">
+                                                                        DE CE SUNT ATÂT DE MULȚI OAMENI SINGURI?<br><br></p>
+                                                                <p class="p1">
+                                                                        
+                                                                        Pentru că astăzi este tot mai greu să găseşti persoana care să te
+                                                                        ȋnţeleagă cu adevărat. Noi ne dorim să aducem oamenii potriviți mai
+                                                                        aproape unii de ceilalţi şi să-i ajutăm să-şi construiască pas cu pas,
+                                                                        relaţii durabile.<br><br>
+                                                                        <b style="color: rgb(255,233,120)">Echipa MatchMe</b> va căuta pentru tine partenerul cel mai potrivit
+                                                                        temperamentului și personalității tale, persoana cu care să poți
+                                                                        împărtăși valori și preocupări comune.
+                                                                        
+
+
+                                                                </p>
+                                                                <input type="submit" value="Inscrie-te aici" name="offer_2" class="astextgold" onclick="if (document.getElementById('register').style.display=== 'none'){document.getElementById('register').style.display = 'block'}else{document.getElementById('register').style.display = 'none'}" ;="">
+                                                
+
+
+                                                        </div>
+
+
+
+                                                </div>
+
+
+
+                                                <div class="footer_pos5" margin:0="" auto;="">
+                                                        <input type="submit" value="Politica de Confidentialitate" name="offer_2" class="astextwhite" onclick="if (document.getElementById('pol_conf').style.display=== 'none'){document.getElementById('pol_conf').style.display = 'block'}else{document.getElementById('pol_conf').style.display = 'none'}" ;="">
+                                                        <input type="submit" value="Contact" name="offer_2" class="astextwhite" onclick="document.getElementById('Div4').scrollIntoView({ behavior: 'smooth', block: 'end'});document.getElementById('menubtn').style.display = 'none'" ;="">
+                                                        <input type="submit" value="MatchMe 2023" name="offer_2" class="astextwhite" onclick="document.getElementById('Div2').scrollIntoView({ behavior: 'smooth', block: 'end'});document.getElementById('menubtn').style.display = 'none'" ;="">
+
+                                                </div>
+
+                        </div>
+
+
+                </div>
+        </div>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

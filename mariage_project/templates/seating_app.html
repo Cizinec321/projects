@@ -1,0 +1,47 @@
+{%extends 'default_seating.html'%}
+
+
+
+
+{%block div1%}
+       <a href="{% url 'show_txt'%}?pass=about"> <span class="icon-about1"></span><span class="icon-about2"></span></a>
+       <a href="{% url 'show_txt'%}?pass=contact"> <span class="icon-contact1"></span><span class="icon-contact2"></span></a>
+       <a href="{% url 'show_txt'%}?pass=edu"> <span class="icon-education1"></span><span class="icon-education2"></span></a>
+       <a href="{% url 'seating_admin'%}?pass=xp"> <span class="icon-xp1"></span><span class="icon-xp2"></span></a>
+       <a href="{% url 'login'%}"> <span class="icon-nu1"></span><span class="icon-nu2"></span></a>
+       <a href="{% url 'register'%}"> <span class="icon-nu3"></span><span class="icon-nu4"></span></a>
+
+{%endblock%}
+
+
+
+{%block div_seating%}
+       {% autoescape off %}
+       {{seating_generator}}
+       {% endautoescape %}
+{%endblock%}
+
+{%block seating_input%}
+       {% autoescape off %}
+       {{seating_in_data}}
+       {% endautoescape %}
+{%endblock%}
+
+
+{%block div2%}
+
+       {% autoescape off %}
+
+       {{form_wrapper_start}}
+
+       {% csrf_token %}
+       {{click_form_login}}
+       {{click_check_div2}}
+       {{click_form.UN}}
+       {{click_form.HAP}}
+       {{form_wrapper_end}}
+
+
+
+       {% endautoescape %}
+{%endblock%}

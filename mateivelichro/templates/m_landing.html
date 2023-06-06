@@ -1,0 +1,54 @@
+{%extends 'm_default.html'%}
+
+
+
+{%block login_div%}
+       
+       <button class="dropbtn" type="button" onclick="if (document.getElementById('menubtn').style.display=== 'none'){document.getElementById('menubtn').style.display = 'block'}else{document.getElementById('menubtn').style.display = 'none'}";>Menu</button>
+       {% autoescape off %}
+       {{display_trigger}}
+       {% endautoescape %}
+       <a href="{% url 'show_txt'%}?pass=about"><p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">About</p></form></a>
+       <a href="{% url 'show_txt'%}?pass=contact"> <p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Contact</p></form></a>
+       <a href="{% url 'show_txt'%}?pass=edu"><p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Education</p></form></a>
+       <a href="{% url 'show_txt'%}?pass=xp"><p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Experience</p></form></a>
+       <a href="{% url 'show_frm'%}"> <p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Comments</p></form></a>
+       <a href="{% url 'login'%}"><p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log In </p></form></a>
+       <a href="{% url 'logout'%}"><p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log Out </p></form></a>
+       <a href="{% url 'register'%}"><p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Register </p></form></a>
+       <a href="{% url 'cpwd'%}"><p style="font-size:3vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Change password </p></form></a>
+        </div>
+{%endblock%}
+
+
+
+
+
+
+{%block div2%}
+
+
+
+
+
+ 
+{%endblock%}
+
+{%block div3%}
+
+       {% autoescape off %}
+       {% csrf_token %}
+       {{click_check_div3}}
+
+
+       {{form_wrapper_start}}
+
+       {% csrf_token %}
+       {{click_form_login}}
+       {{click_check_div2}}
+       {{click_form.UN}}
+       {{click_form.HAP}}
+       {{form_wrapper_end}}
+       {% endautoescape %}
+
+{%endblock%}

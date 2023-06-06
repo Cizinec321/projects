@@ -1,0 +1,129 @@
+{%extends 'default_alt_m.html'%}
+
+{%block script%}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+       {% autoescape off %}
+       {{scrolltrigger}}
+       {% endautoescape %}
+       
+
+
+
+
+{%endblock%}
+
+{%block login_div%}
+
+       <button class="dropbtn" type="button" onclick="if (document.getElementById('menubtn').style.display=== 'none'){document.getElementById('menubtn').style.display = 'block'}else{document.getElementById('menubtn').style.display = 'none'}";></button>
+
+{%endblock%}
+
+
+
+{%block comm_div%}
+       {% autoescape off %}
+       {{display_trigger_comm}}       
+       {{comm_msg}}
+       <div style="bottom: 5px; text-align: right;">
+       <button class="astext_comm" type="button" onclick="if (document.getElementById('comm_div').style.display=== 'none'){document.getElementById('comm_div').style.display = 'block'}else{document.getElementById('comm_div').style.display = 'none'}">Inchide</button><br>
+       </div>
+       </div>
+       {% endautoescape %}
+{%endblock%}
+
+{%block menu_div%}
+
+       {% autoescape off %}
+       {{display_trigger}}
+       {% endautoescape %}
+ 
+       <button class="astext" type="button" onclick="document.getElementById('home').scrollIntoView({ behavior: 'smooth', block: 'end'});document.getElementById('menubtn').style.display = 'none'">Acasa</button><br>
+       <button class="astext" type="button" onclick="document.getElementById('Div2').scrollIntoView({ behavior: 'smooth', block: 'end'});document.getElementById('menubtn').style.display = 'none'">Despre noi</button><br>
+       <button class="astext" type="button" onclick="document.getElementById('Div1').scrollIntoView({ behavior: 'smooth', block: 'end'});document.getElementById('menubtn').style.display = 'none'">Oferte</button><br>
+
+
+       
+       </div>
+       {% autoescape off %}
+       {{extra_trigger}}
+       {% endautoescape %}
+
+{%endblock%}
+
+
+
+{%block registerdiv%}
+
+       <div class="sub1_pos5I_alt" margin:0="" auto;="">
+       <div class="sub1_pos5I_inner_alt" margin:0="" auto;="">
+              <div>
+              <p style="color: rgb(255,233,120);font-size:20px; position: relative; "><b>CREARE CONT NOU</b></p>
+              <form method="post"  style="right: 0%;" enctype="multipart/form-data">{% csrf_token %}
+                     <table>
+                     {% for field in pers_data_form %}
+ 
+                     <tr>
+                        {% if field.auto_id  == "id_nume_de_cont" or field.auto_id  == "id_group" or field.auto_id  == "id_Main_Img64" %}
+                        {% else %}
+                               <th style="text-align: left">{{field.label_tag}}</th>
+                        {% endif %}
+                     <td>
+                            {{ field }}
+                            {{ pers_data_form.media }}
+                     </td>
+                     </tr>
+                     {% endfor %}       
+
+         
+
+             
+                     </table>
+                     <hr/>
+                     <input type="submit" value="Trimite" name="register_form" class="astextgold" /><br>
+                     
+              </form>
+              <input type="submit" value="Inchide" name="offer_1_close" class="astextgold" onclick="if (document.getElementById('register').style.display=== 'none'){document.getElementById('register').style.display = 'block'}else{document.getElementById('register').style.display = 'none'}" ;="">
+
+              </div>
+       </div>
+       </div>
+
+
+
+{%endblock%}
+
+
+{%block logindiv%}
+
+       <div class="sub2_pos5I" margin:0="" auto;="">
+              <div class="sub2_pos5I_inner" margin:0="" auto;="">
+              
+                     <div>
+                     <p style="color: rgb(255,233,120);font-size:20px; position: relative; text-align: left;"><b>CONECTARE CONT EXISTENT</b></p>
+                     <form method="post">{% csrf_token %}
+                            <table>
+                            {% for field in loginform %}
+                            <tr >
+                            <th style="text-align: left">{{field.label_tag}}</th>
+                            <td>
+                                   {{ field }}
+                            </td>
+                            </tr>
+                            {% endfor %}              
+                            </table>
+                            <hr/>
+                            <input type="submit" value="Conectare" name="login_form" class="astextgold" /><br>
+                            <input type="submit" value="Inchide" name="offer_1_close" class="astextgold" onclick="if (document.getElementById('login').style.display=== 'none'){document.getElementById('login').style.display = 'block'}else{document.getElementById('login').style.display = 'none'}" ;="">
+
+                     </form>
+                     </div>
+              </div>
+       </div>
+
+
+{%endblock%}
+
+
+
+

@@ -1,0 +1,53 @@
+{%extends 'default.html'%}
+
+
+{%block login_div%}
+       <button class="dropbtn">{{uname}}</button>
+       <div class="dropdown-content">
+       <a href="{% url 'login'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log In </p></form></a>
+       <a href="{% url 'logout'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log Out </p></form></a>
+       <a href="{% url 'register'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Register </p></form></a>
+       <a href="{% url 'cpwd'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Change password </p></form></a>
+        </div>
+{%endblock%}
+
+{%block div1%}
+       <a href="{% url 'show_txt'%}?pass=about"> <span class="icon-about1"></span><span class="icon-about2"></span></a>
+       <a href="{% url 'show_txt'%}?pass=contact"> <span class="icon-contact1nl"></span><span class="icon-contact2nl"></span></a>
+       <a href="{% url 'show_txt'%}?pass=edu"> <span class="icon-education1"></span><span class="icon-education2"></span></a>
+       <a href="{% url 'login'%}"> <span class="icon-nu1nl"></span><span class="icon-nu2nl"></span></a>
+
+
+{%endblock%}
+
+
+
+
+
+
+{%block div2%}
+
+       {% autoescape off %}
+
+       {{form_wrapper_start}}
+
+       {% csrf_token %}
+       {{click_form_login}}
+       {{click_check_div2}}
+       {{click_form.UN}}
+       {{click_form.HAP}}
+       {{form_wrapper_end}}
+
+
+
+       {% endautoescape %}
+{%endblock%}
+
+{%block div3%}
+
+       {% autoescape off %}
+       {% csrf_token %}
+       {{click_check_div3}}
+       {% endautoescape %}
+
+{%endblock%}

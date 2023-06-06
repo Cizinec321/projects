@@ -1,0 +1,421 @@
+  .pos1{
+    background-color: white;
+    color: black;
+    position: absolute;
+    height:100vh;
+    width:30vw;
+    text-align: center;
+    top:0vh;
+    bottom: 0vh;
+    left: 0vh;
+
+
+  }
+
+  .pos2{
+    background-color: rgb(160, 193, 231);
+    color: black;
+    position: absolute;
+    height:30vh;
+    width:70vw;
+    left:30vw;
+    top:70vh;
+
+  }
+
+  .pos3{
+    background-color:  rgb(160, 193, 231);
+    color: Black;
+    position: absolute;
+    height:70vh;
+    width:70vw;
+    left:30vw;
+    bottom: 30vh;
+    text-align: center;
+    overflow: hidden;
+  }
+
+ .pos_button{
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  position: absolute;
+  bottom: 2vh;
+  right:2vw;
+
+
+  }
+
+
+
+ .pos_button2{
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  top: 1vh;
+  right:0vw;
+
+
+  }
+
+.pos_button:hover{
+  font-size: 18px;
+
+}
+
+
+.pos_button2:hover{
+  font-size: 18px;
+
+}
+
+
+.pos_button:active{
+
+  background-color:  rgb(77, 236, 53);
+
+}
+
+.icon-about2 {
+    background-image:url("about2.svg");
+    display:none;
+    position: absolute;
+    width: 30vw;
+    height: 5vh;
+    top:20%;
+    left:15%;
+    background-repeat:no-repeat;
+  }
+
+  .icon-about1 {
+    background-image:url("about1.svg");
+    display: block;
+    position: absolute;
+    width: 30vw;
+    height: 5vh;
+    top:20%;
+    left:15%;
+    background-repeat:no-repeat;
+  }
+
+
+
+.icon-about1:Hover + .icon-about2
+{
+display: block;
+background-color: rgb(160, 193, 231);
+}
+
+.icon-about1:Hover
+{
+opacity: 0;
+background-color: rgb(160, 193, 231);
+}
+
+
+.icon-contact1 {
+  background-image:url("contact1.svg");
+  display: block;
+  position: absolute;
+  width: 15vw;
+  height: 5vh;
+  top:65%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+
+.icon-contact2 {
+  background-image:url("contact2.svg");
+  display:none;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:65%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+
+.icon-contact1:Hover + .icon-contact2
+{
+display: block;
+background-color: rgb(160, 193, 231);
+}
+
+.icon-contact1:Hover
+{
+opacity: 0;
+background-color: rgb(160, 193, 231);
+}
+
+
+
+
+.icon-education1 {
+  background-image:url("education1.svg");
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:35%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+
+.icon-education2 {
+  background-image:url("education2.svg");
+  display:none;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:35%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+
+
+.icon-education1:Hover + .icon-education2
+{
+display: block;
+background-color: rgb(160, 193, 231);
+}
+
+.icon-education1:Hover
+{
+opacity: 0;
+background-color: rgb(160, 193, 231);
+}
+
+.icon-xp1 {
+  background-image:url("experience1.svg");
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:50%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+.icon-xp2 {
+  background-image:url("experience2.svg");
+  display:none;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:50%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+
+
+.icon-xp1:Hover + .icon-xp2
+{
+display: block;
+background-color: rgb(160, 193, 231);
+}
+
+.icon-xp1:Hover
+{
+opacity: 0;
+background-color: rgb(160, 193, 231);
+}
+
+
+
+.icon-nu1 {
+  background-image:url("nu1.svg");
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:80%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+.icon-nu2 {
+  background-image:url("nu2.svg");
+  display:none;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:80%;
+  left:15%;
+  background-repeat:no-repeat;
+}
+
+
+
+.icon-nu1:Hover + .icon-nu2
+{
+display: block;
+background-color: rgb(160, 193, 231);
+}
+
+.icon-nu1:Hover
+{
+opacity: 0;
+background-color: rgb(160, 193, 231);
+}
+
+.login_view
+{
+  background-color: rgb(160, 193, 231);
+  position: absolute;
+  width: 10vw;
+  height:1.2vw;
+  right:0%;
+  overflow:hidden;
+
+
+}
+
+.login_view:hover{
+  height:12vw;
+  border-radius: 20px;
+  background-image : linear-gradient(to top,
+  rgb(86, 156, 236),
+  rgb(160, 193, 231) 90%);
+
+}
+
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  top:0%;
+
+}
+
+.dropbtn2 {
+  position: absolute;
+  margin:0 auto;
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  width:30vh;
+  left:25vh;
+  bottom:25vw;
+  padding: 2;
+  font-size:18px;
+  text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+
+.dropdown {
+  position: absolute;
+    display: inline-block;
+  right:5%;
+  top:1%;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  right:0%;
+  top:0%;
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.name_review
+{
+  background-color : rgb(160, 193, 231);
+  width: 30vw;
+  left: 5vw;
+  top:5vw;
+  position: relative;
+  text-align: left;
+
+
+}
+
+
+
+.comm_par-style
+{
+
+
+  width: 50vw;
+  left: 5vw;
+  top:5vw;
+  position: relative;
+  border-left: 5px solid blue;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+span {
+
+  vertical-align: middle;
+
+}
+
+
+.del_button{
+  background-image:url("delete_btn.svg");
+  background-color:  transparent;
+  position: absolute;
+  height:2vh;
+  width:2vh;
+  overflow:hidden;
+  border:0;
+  right:0vw;
+  top:0vh;
+  background-size: 100%;
+
+  }
+
+
+  .del_button:hover{
+    transform: rotate(20deg);
+    height:2vh;
+    width:2vh;
+
+  }
