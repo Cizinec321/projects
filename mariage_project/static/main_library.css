@@ -150,20 +150,9 @@
 
 }
 
-.icon-about2 {
-    background-image:url("about2.svg");
-    background-size:100%;
-    display:none;
-    position: absolute;
-    width: 30vw;
-    height: 5vh;
-    top:10%;
-    left:5%;
-    background-repeat:no-repeat;
-  }
 
   .icon-about1 {
-    background-image:url("about1.svg");
+    background-image:url("about2.svg");
     background-size:100%;
     display: block;
     position: absolute;
@@ -172,21 +161,15 @@
     top:10%;
     left:5%;
     background-repeat:no-repeat;
+    opacity: 50%;
+    border: none;
+    background-color: transparent;
   }
 
 
-
-.icon-about1:Hover + .icon-about2
-{
-display: block;
-
-}
-
-.icon-about1:Hover
-{
-opacity: 0;
-
-}
+  .icon-about1:hover {
+    opacity: 100%;
+  }
 
 
 .icon-contact1 {
@@ -201,7 +184,7 @@ opacity: 0;
   background-repeat:no-repeat;
 }
 .icon-contact1nl {
-  background-image:url("contact1.svg");
+  background-image:url("contact2.svg");
   background-size:100%;
   display: block;
   position: absolute;
@@ -210,61 +193,22 @@ opacity: 0;
   top:30%;
   left:5%;
   background-repeat:no-repeat;
-}
-
-.icon-contact2 {
-  background-image:url("contact2.svg");
-  background-size:100%;
-  display:none;
-  position: absolute;
-  width: 30vw;
-  height: 5vh;
-  top:40%;
-  left:5%;
-  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
 }
 
 
-.icon-contact2nl {
-  background-image:url("contact2.svg");
-  background-size:100%;
-  display:none;
-  position: absolute;
-  width: 30vw;
-  height: 5vh;
-  top:30%;
-  left:5%;
-  background-repeat:no-repeat;
-}
 
-
-.icon-contact1:Hover + .icon-contact2
-{
-display: block;
-
-}
-
-.icon-contact1:Hover
-{
-opacity: 0;
-
-}
-
-
-.icon-contact1nl:Hover + .icon-contact2nl
-{
-display: block;
-
-}
 
 .icon-contact1nl:Hover
 {
-opacity: 0;
+opacity: 100%;
 
 }
 
 .icon-education1 {
-  background-image:url("education1.svg");
+  background-image:url("education2.svg");
   background-size:100%;
   display: block;
   position: absolute;
@@ -273,33 +217,15 @@ opacity: 0;
   top:20%;
   left:5%;
   background-repeat:no-repeat;
-}
-
-
-.icon-education2 {
-  background-image:url("education2.svg");
-  background-size:100%;
-  display:none;
-  position: absolute;
-  width: 30vw;
-  height: 5vh;
-  top:20%;
-  left:5%;
-  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
 }
 
 
 
-.icon-education1:Hover + .icon-education2
-{
-display: block;
-
-}
-
-.icon-education1:Hover
-{
-opacity: 0;
-
+.icon-education1:hover {
+opacity:100%;
 }
 
 .icon-xp1 {
@@ -379,7 +305,7 @@ opacity: 0;
 }
 
 .icon-nu1nl {
-  background-image:url("nu1nl.svg");
+  background-image:url("nu2nl.svg");
   background-size:100%;
   display: block;
   position: absolute;
@@ -388,29 +314,15 @@ opacity: 0;
   top:40%;
   left:5%;
   background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
 }
 
-.icon-nu2nl {
-  background-image:url("nu2nl.svg");
-  background-size:100%;
-  display:none;
-  position: absolute;
-  width: 30vw;
-  height: 5vh;
-  top:40%;
-  left:5%;
-  background-repeat:no-repeat;
-}
-
-.icon-nu1nl:Hover + .icon-nu2nl
-{
-display: block;
-
-}
 
 .icon-nu1nl:Hover
 {
-opacity: 0;
+opacity: 100%;
 
 }
 .icon-nu3 {
@@ -489,6 +401,27 @@ opacity: 0;
 }
 
 .dropbtn2 {
+  position: absolute;
+  margin:0 auto;
+  background-image:url("bkground.jpg");
+  background-size:600px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  width:400px;
+  left:1vw;
+  top:15vh;
+  padding: 2;
+  font-size:18px;
+  text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9999;
+  display:none;
+}
+
+.dropbtn2_show {
   position: absolute;
   margin:0 auto;
   background-image:url("bkground.jpg");
@@ -724,4 +657,17 @@ width:100%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 
+}
+
+.main_hidetxt{
+  width:800px;
+  left:30vw;
+  overflow:auto;
+  display: none;
+}
+.main_showtxt{
+  width:800px;
+  left:30vw;
+  overflow:auto;
+  display: block;
 }

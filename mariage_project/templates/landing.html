@@ -1,10 +1,30 @@
 {%extends 'default.html'%}
 
+{%block script%}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+       {% autoescape off %}
+       {{scrolltrigger}}
+       {% endautoescape %}
+       
+<script>
+              function hideall_except(exc) {
+                     if(exc!='aboutus'){document.getElementById('aboutus').className='main_hidetxt'};
+                     if(exc!='aboutyou'){document.getElementById('aboutyou').className='main_hidetxt'};
+                     if(exc!='contact'){document.getElementById('contact').className='main_hidetxt'};
+                     if(exc!='login'){document.getElementById('login').className='dropbtn2'};
+              }
+              
+
+</script>
+
+
+
+{%endblock%}
 {%block login_div%}
        <button class="dropbtn">{{uname}}</button>
        <div class="dropdown-content">
-       <a href="{% url 'login'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log In </p></form></a>
+         <a href="{% url 'login'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log In </p></form></a>
        <a href="{% url 'logout'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log Out </p></form></a>
        <a href="{% url 'register'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Register </p></form></a>
        <a href="{% url 'cpwd'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Change password </p></form></a>
@@ -12,10 +32,10 @@
 {%endblock%}
 
 {%block div1%}
-       <a href="{% url 'show_txt'%}?pass=about"> <span class="icon-about1"></span><span class="icon-about2"></span></a>
-       <a href="{% url 'show_txt'%}?pass=contact"> <span class="icon-contact1nl"></span><span class="icon-contact2nl"></span></a>
-       <a href="{% url 'show_txt'%}?pass=edu"> <span class="icon-education1"></span><span class="icon-education2"></span></a>
-       <a href="{% url 'login'%}"> <span class="icon-nu1nl"></span><span class="icon-nu2nl"></span></a>
+       <button  class="icon-about1" type="button" onclick="hideall_except('aboutus');if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>
+       <button  class="icon-education1" type="button" onclick="hideall_except('aboutyou');if (document.getElementById('aboutyou').className=='main_hidetxt'){document.getElementById('aboutyou').className='main_showtxt'}";></button>
+       <button  class="icon-contact1nl" type="button" onclick="hideall_except('contact');if (document.getElementById('contact').className=='main_hidetxt'){document.getElementById('contact').className='main_showtxt'}";></button>
+       <button  class="icon-nu1nl" type="button" onclick="hideall_except('login');if (document.getElementById('login').className=='dropbtn2'){document.getElementById('login').className='dropbtn2_show'}";></button>
 
 
 {%endblock%}
