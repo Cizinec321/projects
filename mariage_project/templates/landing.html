@@ -21,15 +21,7 @@
 
 
 {%endblock%}
-{%block login_div%}
-       <button class="dropbtn">{{uname}}</button>
-       <div class="dropdown-content">
-         <a href="{% url 'login'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log In </p></form></a>
-       <a href="{% url 'logout'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Log Out </p></form></a>
-       <a href="{% url 'register'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Register </p></form></a>
-       <a href="{% url 'cpwd'%}"><p style="font-size:0.7vw; position: relative; margin-top: 0em;margin-bottom: 0em;">Change password </p></form></a>
-        </div>
-{%endblock%}
+
 
 {%block div1%}
        <button  class="icon-about1" type="button" onclick="hideall_except('aboutus');if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>

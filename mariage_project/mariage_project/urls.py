@@ -21,13 +21,7 @@ from. import identity_management as im
 
 urlpatterns = [
     path('',views.home, name='home'), #ok
-    path('mobile',views.m_show_txt, name='mobile'), # - ok
-    path('show_txt',views.show_txt, name='show_txt'), #ok
-    path('seating_admin',seating_admin.seating_admin_REV, name='seating_admin'), #ok
-    path('register', im.register_view, name='register'),#ok
-    path('login', im.login_view, name='login'),#ok
-    path('logout', im.logout_view, name='logout'),#ok
-    path('cpwd', im.change_password, name='cpwd'),#ok 
+    path('seating_admin',seating_admin.seating_admin_REV, name='seating_admin'), #move this to home page
     path('admin/', admin.site.urls), #admin site remaining active
 
 ]

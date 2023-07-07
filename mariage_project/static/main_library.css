@@ -228,48 +228,34 @@ opacity: 100%;
 opacity:100%;
 }
 
-.icon-xp1 {
-  background-image:url("experience1.svg");
-  background-size:100%;
-  display: block;
-  position: absolute;
-  width: 30vw;
-  height: 5vh;
-  top:30%;
-  left:5%;
-  background-repeat:no-repeat;
-}
 
 .icon-xp2 {
   background-image:url("experience2.svg");
   background-size:100%;
-  display:none;
+  display:block;
   position: absolute;
   width: 30vw;
   height: 5vh;
-  top:30%;
+  top:40%;
   left:5%;
   background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
 }
 
 
 
-.icon-xp1:Hover + .icon-xp2
+.icon-xp2:Hover
 {
-display: block;
-
-}
-
-.icon-xp1:Hover
-{
-opacity: 0;
+opacity: 100;
 
 }
 
 
 
 .icon-nu1 {
-  background-image:url("nu1.svg");
+  background-image:url("nu2.svg");
   background-size:100%;
   display: block;
   position: absolute;
@@ -278,30 +264,15 @@ opacity: 0;
   top:50%;
   left:5%;
   background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
 }
 
-.icon-nu2 {
-  background-image:url("nu2.svg");
-  background-size:100%;
-  display:none;
-  position: absolute;
-  width: 30vw;
-  height: 5vh;
-  top:50%;
-  left:5%;
-  background-repeat:no-repeat;
-}
-
-.icon-nu1:Hover + .icon-nu2
-{
-display: block;
-
-}
 
 .icon-nu1:Hover
 {
-opacity: 0;
-
+opacity: 100%;
 }
 
 .icon-nu1nl {
@@ -326,7 +297,7 @@ opacity: 100%;
 
 }
 .icon-nu3 {
-  background-image:url("register1.svg");
+  background-image:url("register2.svg");
   background-size:100%;
   display: block;
   position: absolute;
@@ -335,33 +306,22 @@ opacity: 100%;
   top:60%;
   left:5%;
   background-repeat:no-repeat;
-}
-
-.icon-nu4 {
-  background-image:url("register2.svg");
-  background-size:100%;
-  display:none;
-  position: absolute;
-  width: 30vw;
-  height: 5vh;
-  top:60%; 
-  left:5%;
-  background-repeat:no-repeat;
-}
-
-
-
-.icon-nu3:Hover + .icon-nu4
-{
-display: block;
-
+  opacity:50%;
+  background-color: transparent;
+  border:none;
 }
 
 .icon-nu3:Hover
 {
-opacity: 0;
+opacity: 100%;
 
 }
+
+
+
+
+
+
 
 .login_view
 {

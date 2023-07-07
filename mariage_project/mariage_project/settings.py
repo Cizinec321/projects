@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+SECRET_KEY = 'tg3z^go3ttw4q2j2v4g6_&r%&+!cwte$vpnnf&(w=m-gn7%-ru'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["mateivelich.pythonanywhere.com", "127.0.0.1","192.168.1.22","localhost"]
+ALLOWED_HOSTS = ["mateivelich.pythonanywhere.com", "127.0.0.1","192.168.1.122","localhost"]
 
 
 # Application definition
@@ -118,10 +118,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=['D:\\Archive\\Git Repo\\Website\\mariage\\static']
+STATICFILES_DIRS=['E:\\Archive\\github_public\\mariage_project\\static']
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT='587'
 EMAIL_HOST_USER='velich.eduard@gmail.com'
-EMAIL_HOST_PASSWORD=#REDACTED#
+#EMAIL_HOST_PASSWORD=#REDACTED#
+EMAIL_HOST_PASSWORD='zpngoqyjcriijkqo'
 EMAIL_USE_TLS   = True
