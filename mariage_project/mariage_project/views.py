@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 import datetime
 from django.http import HttpResponse
-from .forms import loginform,registerform
+from .forms import loginform,registerform,seating_generator,invitees_form
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from . import identity_management as im
 from . import show_text as st
@@ -16,6 +16,8 @@ def home(request):
     agent = request.META["HTTP_USER_AGENT"]
     login_form=loginform(request.POST or None)
     register_form=registerform(request.POST or None)
+    seating_form=seating_generator(request.POST or None)
+    invitees_form_inst=invitees_form(request.POST or None) # Don't know what this is. Need to check it out
     if 'Mobile' in agent:
         print('mobile')
         if im.get_uname(request)=='Not loged in.':
@@ -32,7 +34,7 @@ def home(request):
         if request.POST.get("logout_request"):
               logout(request)
         if request.user.is_authenticated:
-                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Submit</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
+                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Submit</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_form,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">','seatingform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
 
         else:
                 return render(request,'landing.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
