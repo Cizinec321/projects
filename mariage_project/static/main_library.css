@@ -108,7 +108,7 @@
   position: relative;
   top: 1vh;
   right:0vw;
-
+  z-index: 9999;
 
   }
 
@@ -137,9 +137,24 @@
 
   }
 
+  .pos_button_unload{
+    background-color: black;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    position: absolute;
+    top: 5px;
+    right:5px;
+    z-index: 9999;
+  
+    }
 
-
-
+    .pos_button_unload:hover{
+      font-size: 18px;
+    
+    }
 .pos_button_circle:hover{
   font-size: 20px;
 
@@ -398,7 +413,25 @@ opacity: 100%;
   font-size:18px;
   text-align: center;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9998;
+}
+
+
+.dropbtn2_alt {
+  position: absolute;
+  margin:0 auto;
   z-index: 9999;
+  display:none;
+}
+
+.dropbtn2_alt_show {
+  background-color: rgba(255,255,255,0.8);
+  position: relative;
+  margin:0 auto;
+  z-index: 9998;
+  height: 100%;
+  min-height:960px ;
+  min-width: 1200px;
 }
 
 .dropbtn3 {
@@ -419,7 +452,7 @@ opacity: 100%;
   font-size:18px;
   text-align: center;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 9999;
+  z-index: 9998;
   overflow: auto;
   text-align:left;
 }
@@ -441,7 +474,7 @@ opacity: 100%;
   font-size:18px;
   text-align: center;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 9999;
+  z-index: 9998;
   overflow: auto;
   text-align:left;
 }
@@ -450,7 +483,7 @@ opacity: 100%;
     display: inline-block;
   right:5%;
   top:1%;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 

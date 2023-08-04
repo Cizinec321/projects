@@ -14,7 +14,7 @@
                      if(exc!='contact'){document.getElementById('contact').className='main_hidetxt'};
                      if(exc!='login'){document.getElementById('login').className='dropbtn2'};
                      if(exc!='register'){document.getElementById('register').className='dropbtn2'};
-                     if(exc!='seating'){document.getElementById('seating').className='dropbtn2'};
+                     if(exc!='seating'){if (document.getElementById('seating').className=='dropbtn2_show'){document.getElementById('seating').className='dropbtn2'};if (document.getElementById('seating').className=='dropbtn2_alt_show'){document.getElementById('seating').className='dropbtn2_alt'}};
               }
 
 
@@ -30,7 +30,7 @@
        <button  class="icon-about1" type="button" onclick="hideall_except('aboutus');if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>
        <button  class="icon-education1" type="button" onclick="hideall_except('aboutyou');if (document.getElementById('aboutyou').className=='main_hidetxt'){document.getElementById('aboutyou').className='main_showtxt'}";></button>
        <button  class="icon-contact1nl" type="button" onclick="hideall_except('contact');if (document.getElementById('contact').className=='main_hidetxt'){document.getElementById('contact').className='main_showtxt'}";></button>
-       <button  class="icon-xp2" type="button" onclick="hideall_except('seating');if (document.getElementById('seating').className=='dropbtn2'){document.getElementById('seating').className='dropbtn2_show'}";></button>
+       <button  class="icon-xp2" type="button" onclick="hideall_except('seating');if (document.getElementById('seating').className=='dropbtn2'){document.getElementById('seating').className='dropbtn2_show'};if (document.getElementById('seating').className=='dropbtn2_alt'){document.getElementById('seating').className='dropbtn2_alt_show'}";></button>
        <form method="post"  name="logout_request"><button  class="icon-nu1" type="submit" name="logout_request" value="1" ></button></form>
        <button  class="icon-nu3" type="button" onclick="hideall_except('register');if (document.getElementById('register').className=='dropbtn2'){document.getElementById('register').className='dropbtn2_show'}";></button>
 
@@ -94,3 +94,6 @@
 
        {% endautoescape %}
 {%endblock%}
+
+
+
