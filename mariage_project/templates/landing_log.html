@@ -59,9 +59,22 @@
        {% csrf_token %}
        {{click_form_register}}
        {{registerform_wrapper_end}}
-
-
        {% endautoescape %}
+
+           
+       {% for form in seat_handling_form %}
+       {% csrf_token %}
+       {% autoescape on %}       
+       <div class='dropbtn2' id="{{ forloop.counter }}"><form method='post'  name='login_request'><table style='width:100%'>
+       {% endautoescape %}
+       {{ form.as_p }}
+       {% autoescape off %}
+       {{form_wrapper_end}}
+       {% endautoescape %}
+       {%endfor%}
+     
+
+
 {%endblock%}
 
 {%block div3%}
