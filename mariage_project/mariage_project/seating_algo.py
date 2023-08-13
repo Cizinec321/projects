@@ -38,7 +38,7 @@ def seat_generator(topbottom, leftright, seat_per_table):
     return out_html
 
 
-
+#used
 def seat_load(name):
 
     query=tables.objects.filter(setting_name =name) 
@@ -53,6 +53,8 @@ def seat_load(name):
     out_html=''
     form_list=[]
     but_count=0
+    
+    
     for items in query:
           
         if height<widht:
@@ -60,12 +62,15 @@ def seat_load(name):
         else:
             circleh=widht
         
-        
-        for i in range(max_v):
-
+       
+        for i in range(max_v):           
             top=0
             for z in range(max_h): 
-                data_dict = {'table_id': (str(i+1)+str(z+1)), 'setting_name': name,'assigned_seats':invitees_x_table.objects.filter(table_id=(str(i+1)+str(z+1)),setting_name=name).count()}                          
+                inv_list=invitees_x_table.objects.filter(table_id=(str(i+1)+str(z+1)),setting_name=name).values_list('r_name', flat=True)
+                str_inv_list=''
+                for nm in inv_list:
+                    str_inv_list=str_inv_list+nm+'\n'
+                data_dict = {'table_id': (str(i+1)+str(z+1)), 'setting_name': name,'assigned_seats':invitees_x_table.objects.filter(table_id=(str(i+1)+str(z+1)),setting_name=name).count(),'already_seated':str_inv_list}                            
                 form_list.append(invitees_form(initial=data_dict))
                 out_html=out_html+'<div style="align-items: center;position: absolute;height:'+str(circleh)+ 'vh;'+' width:'+str(circleh)+'vh;top:'+str(top)+'vh;left:'+str(left)+'vw;"><span class="table_noselect" style="top:5px;align-items: center;height: '+str(circleh)+'vh; width: '+str(circleh)+'vh; border-radius: 50%; display: inline-block;position: relative"><form method="post" style="position: absolute;align-items: center;height:'+str(circleh)+ 'vh;'+' width:'+str(circleh)+'vh;"><button type="button" name="table_home" value="1" style="background-color: blue;top:'+str((circleh/2)-(circleh/5))+ 'vh;color: white;border: none;border-radius: 70%;position: relative;padding:'+str(circleh/10)+'vh;font-size: 16px;" onclick=document.getElementById('+chr(39)+str(but_count)+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>'+str(i+1)+str(z+1)+'</button></form></span></div>'
                 top=top+height

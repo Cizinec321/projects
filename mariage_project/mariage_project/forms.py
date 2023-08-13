@@ -143,6 +143,7 @@ class invitees_form(forms.Form):
     table_id=forms.CharField(disabled=True)
     setting_name=forms.CharField(disabled=True)
     assigned_seats=forms.CharField(disabled=True)
+    already_seated=forms.CharField(widget=forms.Textarea,disabled=True)
 
 class invitees_disp(forms.Form):
 

@@ -17,6 +17,10 @@
                      if(exc!='seating'){if (document.getElementById('seating').className=='dropbtn2_show'){document.getElementById('seating').className='dropbtn2'};if (document.getElementById('seating').className=='dropbtn2_alt_show'){document.getElementById('seating').className='dropbtn2_alt'}};
               }
 
+              function hide_current(incl) {
+                     document.getElementById(incl).className='dropbtn2'
+              }
+
 
 </script>
 
@@ -65,10 +69,11 @@
        {% for form in seat_handling_form %}
        {% csrf_token %}
        {% autoescape on %}       
-       <div class='dropbtn2' id="{{ forloop.counter }}"><form method='post'  name='login_request'><table style='width:100%'>
-       {% endautoescape %}
+       <div class='dropbtn2' id="{{ forloop.counter0 }}"><form method='post'  name='login_request'><table style='width:100%'>       
        {{ form.as_p }}
-       {% autoescape off %}
+       <button  class='pos_button2' type='button' onclick='hide_current("{{ forloop.counter0 }}")';>Close</button>
+       {% endautoescape %}
+       {% autoescape off %}       
        {{form_wrapper_end}}
        {% endautoescape %}
        {%endfor%}
