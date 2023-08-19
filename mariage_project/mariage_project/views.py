@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 import datetime
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .forms import loginform,registerform,seating_generator,invitees_form
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from . import identity_management as im
@@ -36,16 +36,51 @@ def home(request):
               logout(request)
         if request.POST.get("seating_request"):
               template=request.POST['template']
+              
               if template!='':
-                
+                request.session['template_value'] = template
                 output_l=seating_algo.seat_load(template)
                 seating_table=output_l[0]
                 form_list=output_l[1]
                 return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
                 
               else:
-                print('No tempalte')
-        
+                horizontal=request.POST['horizontal']
+                vertical=request.POST['vertical']
+                no_seats=request.POST['no_seats']
+                name=request.POST['name']
+                for i in range(int(horizontal)):
+                        for z in range(int(vertical)):
+                                tables_inst = tables()            
+                                tables_inst.table_id = str(i+1)+str(z+1)
+                                tables_inst.no_seats = str(no_seats)
+                                tables_inst.setting_name = name
+                                tables_inst.published=0
+                                tables_inst.save()   
+                output_l=seating_algo.seat_load(name)
+                seating_table=output_l[0]
+                form_list=output_l[1]
+                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
+                  
+                
+        if request.POST.get('add_participant'):
+                template=request.session.get('template_value', None)
+                part_name=request.POST['name']
+                table_id=request.POST['table_id']
+                real_party=str(invitees.objects.filter(name=part_name).aggregate(Max('real_name'))['real_name__max'])                 
+                txi_inst = invitees_x_table()            
+                txi_inst.name = part_name
+                txi_inst.r_name = real_party
+                txi_inst.table_id = table_id
+                txi_inst.setting_name = template
+                txi_inst.save() 
+                output_l=seating_algo.seat_load(template)
+                seating_table=output_l[0]
+                form_list=output_l[1]
+              
+           
+                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
+                
         if request.user.is_authenticated:
                 return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Submit</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_form,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">','seatingform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
 

@@ -140,7 +140,7 @@ class m_seating_generator(forms.Form):
 class invitees_form(forms.Form):
 
     name = forms.ModelChoiceField(invitees.objects.values_list("name", flat=True).filter(particpation='Yes'), required=False)
-    table_id=forms.CharField(disabled=True)
+    table_id=forms.CharField(disabled=False)
     setting_name=forms.CharField(disabled=True)
     assigned_seats=forms.CharField(disabled=True)
     already_seated=forms.CharField(widget=forms.Textarea,disabled=True)
