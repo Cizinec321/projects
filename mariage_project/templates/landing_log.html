@@ -62,7 +62,16 @@
        {{registerform_wrapper_start}}
        {% csrf_token %}
        {{click_form_register}}
+       {% endautoescape %}
+       {% autoescape on %}   
+       <tr><th></th><th><button type="submit" class="pos_button2" name="save_participant" value="1" >Submit</button></th><td></td></tr>
+       {% endautoescape %}
+       {% autoescape off %}
+       {{click_ee_list}}
        {{registerform_wrapper_end}}
+
+       
+
        {% endautoescape %}
 
            

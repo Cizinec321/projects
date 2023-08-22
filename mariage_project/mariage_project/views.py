@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 import datetime
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import loginform,registerform,seating_generator,invitees_form
+from .forms import loginform,registerform,seating_generator,prefferences
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from . import identity_management as im
 from . import show_text as st
@@ -18,7 +18,6 @@ def home(request):
     login_form=loginform(request.POST or None)
     register_form=registerform(request.POST or None)
     seating_form=seating_generator(request.POST or None)
-    invitees_form_inst=invitees_form(request.POST or None) # Don't know what this is. Need to check it out
     if 'Mobile' in agent:
         print('mobile')
         if im.get_uname(request)=='Not loged in.':
@@ -42,13 +41,14 @@ def home(request):
                 output_l=seating_algo.seat_load(template)
                 seating_table=output_l[0]
                 form_list=output_l[1]
-                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
+                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'</table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
                 
               else:
                 horizontal=request.POST['horizontal']
                 vertical=request.POST['vertical']
                 no_seats=request.POST['no_seats']
                 name=request.POST['name']
+                request.session['template_value'] = name
                 for i in range(int(horizontal)):
                         for z in range(int(vertical)):
                                 tables_inst = tables()            
@@ -60,7 +60,7 @@ def home(request):
                 output_l=seating_algo.seat_load(name)
                 seating_table=output_l[0]
                 form_list=output_l[1]
-                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
+                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'</table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
                   
                 
         if request.POST.get('add_participant'):
@@ -79,10 +79,45 @@ def home(request):
                 form_list=output_l[1]
               
            
-                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
-                
+                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Add</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'</table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Unload</button></form>','seatingform_wrapper_end':'</div>'})
+        if request.POST.get('save_participant'):
+              p1=gen_dat.id_generator()
+              username=request.POST['username']
+              email=request.POST['email']
+              party_no=int(request.POST['participants'])
+              get_user_model().objects.create_user(username,email,p1)
+              if party_no>1:
+                            for x in range(1, party_no+1):
+                                invitees_inst = invitees()            
+                                invitees_inst.name = str(username)+' - seat '+str(x)
+                                invitees_inst.real_name= str(username)+' - seat '+str(x)
+                                invitees_inst.unq_id = str(p1)
+                                invitees_inst.table_id = 'Not Assigned'
+                                invitees_inst.setting_name = 'Not Assigned'
+                                invitees_inst.e_mail = email
+                                invitees_inst.menu_prefference='We will eat anything'
+                                invitees_inst.Freeform_comments=''
+                                invitees_inst.particpation='Yes'
+                                invitees_inst.save()
+              else:
+                                invitees_inst = invitees()            
+                                invitees_inst.name = str(username)
+                                invitees_inst.unq_id = str(p1)
+                                invitees_inst.table_id = 'Not Assigned'
+                                invitees_inst.setting_name = 'Not Assigned'
+                                invitees_inst.e_mail = email
+                                invitees_inst.real_name= str(username)
+                                invitees_inst.menu_prefference='We will eat anything'
+                                invitees_inst.Freeform_comments=''
+                                invitees_inst.particpation='Yes'
+                                invitees_inst.save()
+              return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Submit</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':'<div class="dropbtn2_show" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'</table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">','seatingform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
+
+       
+              #add user creation here      
         if request.user.is_authenticated:
-                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Submit</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_form_seating':seating_form,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">','seatingform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
+                #change this to superuser only
+                return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Submit</button></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':'<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'</table></form></div>','seatingform_wrapper_start':'<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">','seatingform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
 
         else:
                 return render(request,'landing.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})

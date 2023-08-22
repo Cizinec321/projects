@@ -45,32 +45,3 @@ def gen_text(in_val):
         )
     }[in_val]
 
-def get_party_list(table_id,setting_id):
-
-    query_res=invitees_x_table.objects.filter(table_id=table_id,setting_name=setting_id)
-    outval='<table style="top: 5%;position: relative;"><tbody><tr><th style="text-align: left;"><label >Seated invitees:<br><br></label></th></tr>'
-    for x in  query_res:
-        outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.name)+'</label></th></tr>'
-    outval=outval+'</tbody></table>'
-    return outval
-def get_party_names(table_id,setting_id):
-
-    query_res=invitees_x_table.objects.filter(table_id=table_id,setting_name=setting_id)
-    outval='<table style="top: 5%;position: relative;"><tbody><tr><th style="text-align: left;"><label >Seated invitees:<br><br></label></th></tr>'
-    for x in  query_res:
-        outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.name)+'</label></th></tr>'
-    outval=outval+'</tbody></table>'
-    return outval
-
-def get_party_full():
-    User = get_user_model()
-    users = User.objects.all()
-    outval='<table style="top: 5%;position: relative; table-layout: fixed ; width: 100%; "><tbody>'
-    for x in  users:
-        if str(x.username)!='CP8FYQAILLSI':
-            query_res=invitees.objects.filter(name__startswith=str(x.username)).count()  
-            party_res=invitees.objects.filter(name__startswith=str(x.username),particpation='Yes').count()    
-            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left;"><form method="POST"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Delete</button><form></th>'+'<th style="text-align: left;"><form method="POST"><button type="submit" name="edit_participant" value="'+str(x.username)+'" class="pos_button2">Details</button><form></th></tr>'
-    outval=outval+'</tbody></table>'
-    return outval
-
