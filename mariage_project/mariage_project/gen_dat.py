@@ -49,7 +49,7 @@ def get_party_full():
         if str(x.username)!='admin':
             query_res=invitees.objects.filter(name__startswith=str(x.username)).count()  
             party_res=invitees.objects.filter(name__startswith=str(x.username),particpation='Yes').count()    
-            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left;"><form method="POST"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Delete</button><form></th>'+'<th style="text-align: left;"><form method="POST"><button type="submit" name="edit_participant" value="'+str(x.username)+'" class="pos_button2">Details</button><form></th></tr>'
+            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Delete</button></form></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="edit_participant" value="'+str(x.username)+'" class="pos_button2">Details</button></form></th></tr>'
     outval=outval+'</tbody></table>'
     return outval
 
