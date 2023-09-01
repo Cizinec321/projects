@@ -6,7 +6,7 @@ from .forms import loginform, registerform, changepwd, m_loginform, m_registerfo
 from django.db.models import Max
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from . import email as ml
-from .models import tables,invitees_x_table
+from .models import tables,invitees_x_table, invitees
 import os
 import string
 import random
@@ -78,6 +78,9 @@ def seat_load(name):
             left=left+widht
 
         return out_html,form_list
+    
+
+
 
 def seat_disp(zname,uname):
 

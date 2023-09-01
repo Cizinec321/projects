@@ -1,4 +1,5 @@
 from .models import in_form, tables, models, invitees,invitees_x_table
+from .forms import prefferences
 from django.contrib.auth import get_user_model
 import random
 import string
@@ -45,13 +46,50 @@ def get_party_full():
     User = get_user_model()
     users = User.objects.all()
     outval='<table style="top: 5%;position: relative; table-layout: fixed ; width: 100%; "><tbody>'
+    but_count=0
     for x in  users:
         if str(x.username)!='admin':
             query_res=invitees.objects.filter(name__startswith=str(x.username)).count()  
             party_res=invitees.objects.filter(name__startswith=str(x.username),particpation='Yes').count()    
-            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Delete</button></form></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="edit_participant" value="'+str(x.username)+'" class="pos_button2">Details</button></form></th></tr>'
+            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Delete</button></form></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(x.username)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'user'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Details</button></form></th></tr>'
+            but_count=but_count+1
     outval=outval+'</tbody></table>'
     return outval
 
+
+
+
+
+
 def id_generator(size=12, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
+
+
+def details_load():
+
+    User = get_user_model()
+    users = User.objects.all()
+    form_list=[]
+
+    
+    
+    for items in users:
+        print(items.get_username())
+        if str(items.get_username())!='admin':
+            query_res=invitees.objects.filter(name__startswith=str(items.get_username())+' - seat').count()
+            print(query_res)
+            seats_list=[]
+            real_name=[]
+            menu_pref=[]
+            f_comm=[]
+            party=[]
+            for x in invitees.objects.filter(name__startswith=str(items.get_username())+' - seat').all():
+                print(x.name)
+                seats_list.append(str(x.name))
+                real_name.append(str(x.real_name))
+                menu_pref.append(str(x.menu_prefference))
+                f_comm.append(str(x.Freeform_comments))
+                party.append(str(x.particpation))
+            prefferences_inst = prefferences(query_res,seat_no=seats_list,r_name=real_name,menu_pref=menu_pref,f_comm=f_comm,party=party)
+            form_list.append(prefferences_inst)
+    return form_list
