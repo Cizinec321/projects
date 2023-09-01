@@ -56,7 +56,18 @@ def get_party_full():
     outval=outval+'</tbody></table>'
     return outval
 
+def get_party_full_non_su(unm):
 
+    outval='<table style="top: 5%;position: relative; table-layout: fixed ; width: 100%; "><tbody>'
+    but_count=0
+
+    if str(unm)!='admin':
+            query_res=invitees.objects.filter(name__startswith=str(unm)).count()  
+            party_res=invitees.objects.filter(name__startswith=str(unm),particpation='Yes').count()    
+            outval=outval+'<tr><th style="text-align: left;"><label >'+str(unm)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left;"></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(unm)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'user'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Details</button></form></th></tr>'
+            but_count=but_count+1
+    outval=outval+'</tbody></table>'
+    return outval
 
 
 
@@ -74,17 +85,37 @@ def details_load():
     
     
     for items in users:
-        print(items.get_username())
         if str(items.get_username())!='admin':
             query_res=invitees.objects.filter(name__startswith=str(items.get_username())+' - seat').count()
-            print(query_res)
             seats_list=[]
             real_name=[]
             menu_pref=[]
             f_comm=[]
             party=[]
             for x in invitees.objects.filter(name__startswith=str(items.get_username())+' - seat').all():
-                print(x.name)
+                seats_list.append(str(x.name))
+                real_name.append(str(x.real_name))
+                menu_pref.append(str(x.menu_prefference))
+                f_comm.append(str(x.Freeform_comments))
+                party.append(str(x.particpation))
+            prefferences_inst = prefferences(query_res,seat_no=seats_list,r_name=real_name,menu_pref=menu_pref,f_comm=f_comm,party=party)
+            form_list.append(prefferences_inst)
+    return form_list
+
+def details_load_non_su(unm):
+
+
+    
+    print(unm)
+    form_list=[]
+    if str(unm)!='admin':
+            query_res=invitees.objects.filter(name__startswith=str(unm)+' - seat').count()
+            seats_list=[]
+            real_name=[]
+            menu_pref=[]
+            f_comm=[]
+            party=[]
+            for x in invitees.objects.filter(name__startswith=str(unm)+' - seat').all():
                 seats_list.append(str(x.name))
                 real_name.append(str(x.real_name))
                 menu_pref.append(str(x.menu_prefference))

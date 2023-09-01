@@ -64,7 +64,10 @@
        {{click_form_register}}
        {% endautoescape %}
        {% autoescape on %}   
+       {% if request.user.is_superuser %}
        <tr><th></th><th><button type="submit" class="pos_button2" name="save_participant" value="1" >Submit</button></th><td></td></tr></table></form>
+       {% else %}
+       {% endif %}
        {% endautoescape %}
        {% autoescape off %}
        {{click_ee_list}}
@@ -92,10 +95,9 @@
        {% autoescape on %} 
        <div class='dropbtn2' id="{{ forloop.counter0 }}user"><form method='post'  name='login_request'><table style='width:100%'> 
        {{ form.as_p }}
-       <button  class='pos_button2' type='button' onclick='hide_current("{{ forloop.counter0 }}user")';>Close</button>
+       <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" >Submit</button></th><td></td></tr></table></form></div>
        {% endautoescape %}
        {% autoescape off %}       
-       {{form_wrapper_end}}
        {% endautoescape %}
        {%endfor%}
      
