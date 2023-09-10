@@ -21,6 +21,18 @@
                      document.getElementById(incl).className='dropbtn2'
               }
 
+              function hidealluser() {
+                     const elements = document.querySelectorAll('[id*=user]');
+                     for (let i = 0; i < elements.length; i++) {
+                     elements[i].className='dropbtn2';                                  
+                     }
+              }
+              function hideallseating() {
+                     const elements = document.querySelectorAll('[id*=seating]');
+                     for (let i = 0; i < elements.length; i++) {
+                     if (elements[i].className=='dropbtn2_show'){elements[i].className='dropbtn2'};                                  
+                     }
+              }
 
 </script>
 
@@ -31,12 +43,12 @@
 
 
 {%block div1%}
-       <button  class="icon-about1" type="button" onclick="hideall_except('aboutus');if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>
-       <button  class="icon-education1" type="button" onclick="hideall_except('aboutyou');if (document.getElementById('aboutyou').className=='main_hidetxt'){document.getElementById('aboutyou').className='main_showtxt'}";></button>
-       <button  class="icon-contact1nl" type="button" onclick="hideall_except('contact');if (document.getElementById('contact').className=='main_hidetxt'){document.getElementById('contact').className='main_showtxt'}";></button>
-       <button  class="icon-xp2" type="button" onclick="hideall_except('seating');if (document.getElementById('seating').className=='dropbtn2'){document.getElementById('seating').className='dropbtn2_show'};if (document.getElementById('seating').className=='dropbtn2_alt'){document.getElementById('seating').className='dropbtn2_alt_show'}";></button>
+       <button  class="icon-about1" type="button" onclick="hideall_except('aboutus');hidealluser();hideallseating();if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>
+       <button  class="icon-education1" type="button" onclick="hideall_except('aboutyou');hidealluser();hideallseating();if (document.getElementById('aboutyou').className=='main_hidetxt'){document.getElementById('aboutyou').className='main_showtxt'}";></button>
+       <button  class="icon-contact1nl" type="button" onclick="hideall_except('contact');hidealluser();hideallseating();if (document.getElementById('contact').className=='main_hidetxt'){document.getElementById('contact').className='main_showtxt'}";></button>
+       <button  class="icon-xp2" type="button" onclick="hideall_except('seating');hidealluser();hideallseating();if (document.getElementById('seating').className=='dropbtn2'){document.getElementById('seating').className='dropbtn2_show'};if (document.getElementById('seating').className=='dropbtn2_alt'){document.getElementById('seating').className='dropbtn2_alt_show'}";></button>
        <form method="post"  name="logout_request"><button  class="icon-nu1" type="submit" name="logout_request" value="1" ></button></form>
-       <button  class="icon-nu3" type="button" onclick="hideall_except('register');if (document.getElementById('register').className=='dropbtn2'){document.getElementById('register').className='dropbtn2_show'}";></button>
+       <button  class="icon-nu3" type="button" onclick="hideall_except('register');hidealluser();hideallseating();if (document.getElementById('register').className=='dropbtn2'){document.getElementById('register').className='dropbtn2_show'}";></button>
 
 
 
@@ -81,9 +93,9 @@
        {% for form in seat_handling_form %}
        {% csrf_token %}
        {% autoescape on %}       
-       <div class='dropbtn2' id="{{ forloop.counter0 }}"><form method='post'  name='login_request'><table style='width:100%'>       
+       <div class='dropbtn2' id="{{ forloop.counter0 }}seating"><form method='post'  name='login_request'><table style='width:100%'>       
        {{ form.as_p }}
-       <button  class='pos_button2' type='button' onclick='hide_current("{{ forloop.counter0 }}")';>Close</button>
+       <button  class='pos_button2' type='button' onclick='hide_current("{{ forloop.counter0 }}seating")';>Close</button>
        {% endautoescape %}
        {% autoescape off %}       
        {{form_wrapper_end}}
