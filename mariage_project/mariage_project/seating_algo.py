@@ -85,7 +85,7 @@ def seat_load_non_su():
     if cnt>0:
         query=tables.objects.filter(published=1) 
         max_val=tables.objects.filter(published=1).aggregate(Max('table_id'))
-        name=tables.objects.filter(published=1).aggregate(Max('name'))
+        name=tables.objects.filter(published=1).aggregate(Max('setting_name'))
         max_h=int(max_val['table_id__max'][1])
         max_v=int(max_val['table_id__max'][0])  
         height=100/(max_h)
@@ -120,7 +120,7 @@ def seat_load_non_su():
                 left=left+widht
     else:
         form_list=[]
-        out_html='<div class="dropbtn2"><form method="post"  name="refusal">No form has been published yet. Please stand by!<button>Close</button></form></div>'
+        out_html='<div class="dropbtn2_show"><form method="post"  name="refusal">No form has been published yet. Please stand by!</form></div>'
     return out_html,form_list
 
 

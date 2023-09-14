@@ -22,7 +22,8 @@ class m_registerform(forms.Form):
 
 class registerform(forms.Form):
 
-    username=forms.CharField()
+    username=forms.CharField(        label='',
+        widget=forms.Textarea(attrs={'style':"right:15%;position:absolute;width:70%;height:40px;border: 2;background: white;outline: 0;top: 40px;font-size: 200%;","Placeholder":"Username"}))
     email=forms.EmailField(required=True)
     participants=forms.CharField(widget=forms.NumberInput, required=True)
 
