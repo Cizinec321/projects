@@ -104,9 +104,6 @@ def details_load():
 
 def details_load_non_su(unm):
 
-
-    
-    print(unm)
     form_list=[]
     if str(unm)!='admin':
             query_res=invitees.objects.filter(name__startswith=str(unm)+' - seat').count()

@@ -21,8 +21,6 @@ def home(request):
     seating_table_non_su=output_l_non_su[0]
     uval=request.GET.get('uval')
     pval=request.GET.get('pval')
-    print(uval)
-    print(pval)
     if 'Mobile' in agent:
         print('mobile')
         if im.get_uname(request)=='Not loged in.':
