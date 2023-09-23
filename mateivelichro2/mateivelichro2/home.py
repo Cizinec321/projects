@@ -33,7 +33,7 @@ def home(request):
                             send_mail(
                                         'Message via website',
                                         mail_body,
-                                        "matchmer@matchme.ro",
+                                        "velich.eduard@gmail.com",
                                         ["velich.eduard@gmail.com"],
                                         fail_silently=False,
                                         )
