@@ -21,7 +21,7 @@ def gen_text():
             '</div>'\
             '<div class="main_hidetxt" id="contact">'\
             '<p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 2em; margin-top: 5em; margin-bottom: 0em; text-align: left;"><b>Contact</b><br><br><br>'\
-            "<b>Email:</b> velich.eduard@gmail.com<br>"\
+            "<b>Email:</b> velich.eduard[at]gmail.com<br>"\
             '</div>'
     return outval
 

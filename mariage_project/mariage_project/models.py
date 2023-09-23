@@ -26,3 +26,4 @@ class invitees_x_table(models.Model):
     r_name=models.CharField(max_length=200)
     table_id=models.CharField(max_length=4)
     setting_name=models.CharField(max_length=250)
+

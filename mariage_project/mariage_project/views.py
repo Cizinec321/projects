@@ -19,7 +19,10 @@ def home(request):
     seating_form=seating_generator(request.POST or None)
     output_l_non_su=seating_algo.seat_load_non_su()
     seating_table_non_su=output_l_non_su[0]
-    
+    uval=request.GET.get('uval')
+    pval=request.GET.get('pval')
+    print(uval)
+    print(pval)
     if 'Mobile' in agent:
         print('mobile')
         if im.get_uname(request)=='Not loged in.':
@@ -27,6 +30,14 @@ def home(request):
         else:
                 return render(request,'m_landing_log.html',{'display_trigger':'<div id="menubtn" class="dropdown-content" style="display:none">','click_check_div3':m.mobile_generator('aboutus')})
     else:
+        if uval!=None and pval!=None:
+                user=authenticate(request,username=uval,password=pval)
+                if user==None:
+                       return render(request,'landing.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Submit</button></th><td></td></tr></table></form></div>'})
+                else:
+                       login(request,user)
+                       
+ 
         if request.POST.get("login_request"):
             if login_form.is_valid():
                 username=login_form.cleaned_data['username']
