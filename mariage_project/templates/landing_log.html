@@ -22,7 +22,7 @@
               }
 
               function hidealluser() {
-                     const elements = document.querySelectorAll('[id*=user]');
+                     const elements = document.querySelectorAll('[id*=utiz]');
                      for (let i = 0; i < elements.length; i++) {
                      elements[i].className='dropbtn2';                                  
                      }
@@ -105,7 +105,7 @@
        {% for form in invitees_handling_form %}
        {% csrf_token %}
        {% autoescape on %} 
-       <div class='dropbtn2' id="{{ forloop.counter0 }}user"><form method='post'  name='login_request'><table style='width:100%'> 
+       <div class='dropbtn2' id="{{ forloop.counter0 }}utiz"><form method='post'  name='login_request'><table style='width:100%'> 
        {{ form.as_p }}
        <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" >Submit</button></th><td></td></tr></table></form></div>
        {% endautoescape %}

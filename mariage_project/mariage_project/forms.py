@@ -22,8 +22,7 @@ class m_registerform(forms.Form):
 
 class registerform(forms.Form):
 
-    username=forms.CharField(        label='',
-        widget=forms.Textarea(attrs={'style':"right:15%;position:absolute;width:70%;height:40px;border: 2;background: white;outline: 0;top: 40px;font-size: 200%;","Placeholder":"Username"}))
+    username=forms.CharField()
     email=forms.EmailField(required=True)
     participants=forms.CharField(widget=forms.NumberInput, required=True)
 
@@ -140,7 +139,7 @@ class m_seating_generator(forms.Form):
 
 class invitees_form(forms.Form):
 
-    name = forms.ModelChoiceField(invitees.objects.values_list("name", flat=True).filter(particpation='Yes'), required=False)
+    name = forms.ModelChoiceField(invitees.objects.values_list("real_name", flat=True).filter(particpation='Yes'), required=False)
     table_id=forms.CharField(disabled=False)
     setting_name=forms.CharField(disabled=True)
     assigned_seats=forms.CharField(disabled=True)

@@ -84,7 +84,7 @@ def home(request):
                 template=request.session.get('template_value', None)
                 part_name=request.POST['name']
                 table_id=request.POST['table_id']
-                real_party=str(invitees.objects.filter(name=part_name).aggregate(Max('real_name'))['real_name__max'])                 
+                real_party=str(invitees.objects.filter(real_name=part_name).aggregate(Max('real_name'))['real_name__max'])                 
                 txi_inst = invitees_x_table()            
                 txi_inst.name = part_name
                 txi_inst.r_name = real_party
