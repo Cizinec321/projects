@@ -30,7 +30,7 @@ class prefferences (forms.Form):
 
 
 
-    def __init__(self, n,seat_no=None,r_name=None,menu_pref=None,f_comm=None,party=None,  *args, **kwargs):
+    def __init__(self, n,seat_no=None,r_name=None,email=None,menu_pref=None,f_comm=None,party=None,  *args, **kwargs):
 
         super(prefferences, self).__init__(*args, **kwargs)
         CHOICES_MENU =(
@@ -38,6 +38,7 @@ class prefferences (forms.Form):
         ("No fish", "No fish"),
         ("No meat, no fish", "No meat, no fish"),
         ("No meat", "No meat"),
+        ("Children's menu", "Children's menu"),
         ("Other (specify in coments)", "Other (specify in coments)"),
         )
         CHOICES_PARTY=(
@@ -48,6 +49,7 @@ class prefferences (forms.Form):
             self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],widget=forms.Textarea(attrs={'style':"background: grey;width:70%;height:20px;"}))
             self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],required=True,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
             self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],choices = CHOICES_PARTY,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
+            self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
             self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],choices = CHOICES_MENU,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
             self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
 
@@ -65,6 +67,7 @@ class m_prefferences (forms.Form):
         ("No fish", "No fish"),
         ("No meat, no fish", "No meat, no fish"),
         ("No meat", "No meat"),
+        ("Children's menu", "Children's menu"),
         ("Other (specify in coments)", "Other (specify in coments)"),
         )
         CHOICES_PARTY=(
@@ -75,6 +78,7 @@ class m_prefferences (forms.Form):
             self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: grey;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
             self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],required=True,widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
             self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],choices = CHOICES_PARTY,widget=forms.Select(attrs={'style':"left:5px;position:relative;width:90%;height:60px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
+            self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
             self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],choices = CHOICES_MENU,widget=forms.Select(attrs={'style':"left:5px;position:relative;width:90%;height:60px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
             self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
             
@@ -142,6 +146,10 @@ class invitees_form(forms.Form):
     name = forms.ModelChoiceField(invitees.objects.values_list("real_name", flat=True).filter(particpation='Yes'), required=False)
     table_id=forms.CharField(disabled=False)
     setting_name=forms.CharField(disabled=True)
+    assigned_seats=forms.CharField(disabled=True)
+    already_seated=forms.CharField(widget=forms.Textarea,disabled=True)
+
+class invitees_form_non_su(forms.Form):
     assigned_seats=forms.CharField(disabled=True)
     already_seated=forms.CharField(widget=forms.Textarea,disabled=True)
 

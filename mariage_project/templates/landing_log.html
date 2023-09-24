@@ -97,8 +97,12 @@
        {{ form.as_p }}
        <button  class='pos_button2' type='button' onclick='hide_current("{{ forloop.counter0 }}seating")';>Close</button>
        {% endautoescape %}
-       {% autoescape off %}       
+       {% autoescape off %} 
+       {% if request.user.is_superuser %}      
        {{form_wrapper_end}}
+       {% else %}
+       {{form_wrapper_end_non_su}}
+       {% endif %}
        {% endautoescape %}
        {%endfor%}
 
