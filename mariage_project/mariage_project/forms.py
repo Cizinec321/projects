@@ -22,9 +22,9 @@ class m_registerform(forms.Form):
 
 class registerform(forms.Form):
 
-    username=forms.CharField()
-    email=forms.EmailField(required=True)
-    participants=forms.CharField(widget=forms.NumberInput, required=True)
+    username=forms.CharField(label='Utilizator')
+    email=forms.EmailField(required=True, label='E-mail')
+    participants=forms.CharField(widget=forms.NumberInput, required=True, label='Participanți')
 
 class prefferences (forms.Form):
 
@@ -84,9 +84,9 @@ class m_prefferences (forms.Form):
             
 
 class loginform(forms.Form):
-    username=forms.CharField()
+    username=forms.CharField(label='Nume de utilizator')
     password=forms.CharField(
-        widget=forms.PasswordInput
+        widget=forms.PasswordInput,label='Parolă'
     )
 
 class m_loginform(forms.Form):
@@ -124,11 +124,11 @@ class m_input_form(forms.Form):
 
 class seating_generator(forms.Form):
         vertical=forms.CharField(widget=forms.NumberInput, required=False)
-        horizontal=forms.CharField(widget=forms.NumberInput, required=False)
-        no_seats=forms.CharField(widget=forms.NumberInput, required=False)
-        name=forms.CharField(required=False)
+        horizontal=forms.CharField(widget=forms.NumberInput, required=False, label='Orizontal')
+        no_seats=forms.CharField(widget=forms.NumberInput, required=False, label='Nr locuri')
+        name=forms.CharField(required=False, label='Nume')
         template= forms.ModelChoiceField(
-        queryset=tables.objects.values_list("setting_name", flat=True).distinct(), required=False
+        queryset=tables.objects.values_list("setting_name", flat=True).distinct(), required=False, label='Model'
     )
 
 class m_seating_generator(forms.Form):
@@ -143,11 +143,11 @@ class m_seating_generator(forms.Form):
 
 class invitees_form(forms.Form):
 
-    name = forms.ModelChoiceField(invitees.objects.values_list("real_name", flat=True).filter(particpation='Yes'), required=False)
-    table_id=forms.CharField(disabled=False)
-    setting_name=forms.CharField(disabled=True)
-    assigned_seats=forms.CharField(disabled=True)
-    already_seated=forms.CharField(widget=forms.Textarea,disabled=True)
+    name = forms.ModelChoiceField(invitees.objects.values_list("real_name", flat=True).filter(particpation='Da'), required=False, label='Nume participant')
+    table_id=forms.CharField(disabled=False, label='ID Masă')
+    setting_name=forms.CharField(disabled=True, label='Nume model')
+    assigned_seats=forms.CharField(disabled=True,label='Locuri ocupate')
+    already_seated=forms.CharField(widget=forms.Textarea,disabled=True, label='Persoane așezate')
 
 class invitees_form_non_su(forms.Form):
     assigned_seats=forms.CharField(disabled=True, label='Locuri ocupate')

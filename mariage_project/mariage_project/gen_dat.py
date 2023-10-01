@@ -56,8 +56,8 @@ def get_party_full():
     for x in  users:
         if str(x.username)!='admin':
             query_res=invitees.objects.filter(name__startswith=str(x.username)).count()  
-            party_res=invitees.objects.filter(name__startswith=str(x.username),particpation='Yes').count()    
-            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Locuri</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participanți</label></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Delete</button></form></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(x.username)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Detalii</button></form></th></tr>'
+            party_res=invitees.objects.filter(name__startswith=str(x.username),particpation='Da').count()    
+            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Locuri</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participanți</label></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Șterge</button></form></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(x.username)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Detalii</button></form></th></tr>'
             but_count=but_count+1
     outval=outval+'</tbody></table>'
     return outval
@@ -69,7 +69,7 @@ def get_party_full_non_su(unm):
 
     if str(unm)!='admin':
             query_res=invitees.objects.filter(name__startswith=str(unm)).count()  
-            party_res=invitees.objects.filter(name__startswith=str(unm),particpation='Yes').count()    
+            party_res=invitees.objects.filter(name__startswith=str(unm),particpation='Da').count()    
             outval=outval+'<tr><th style="text-align: left;"><label >'+str(unm)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Locuri</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participanți</label></th>'+'<th style="text-align: left;"></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(unm)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Detalii</button></form></th></tr>'
             but_count=but_count+1
     outval=outval+'</tbody></table>'
