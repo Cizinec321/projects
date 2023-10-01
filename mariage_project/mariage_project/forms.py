@@ -34,24 +34,24 @@ class prefferences (forms.Form):
 
         super(prefferences, self).__init__(*args, **kwargs)
         CHOICES_MENU =(
-        ("We will eat anything", "We will eat anything"),
-        ("No fish", "No fish"),
-        ("No meat, no fish", "No meat, no fish"),
-        ("No meat", "No meat"),
-        ("Children's menu", "Children's menu"),
-        ("Other (specify in coments)", "Other (specify in coments)"),
+        ("Mănânc orice", "Mănânc orice"),
+        ("Nu mănânc pește", "Nu mănânc pește"),
+        ("Nu mănânc pește și carne", "Nu mănânc pește și carne"),
+        ("Nu mănânc carne", "Nu mănânc carne"),
+        ("Meniu copii", "Meniu copii"),
+        ("Altele (menționați in comentarii)", "Altele (menționați in comentarii)"),
         )
         CHOICES_PARTY=(
-            ("Yes","Yes"),
-            ("No","No")
+            ("Da","Da"),
+            ("Nu","Nu")
         )
         for i in range(1, n+1):
-            self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],widget=forms.Textarea(attrs={'style':"background: grey;width:70%;height:20px;"}))
-            self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],required=True,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
-            self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],choices = CHOICES_PARTY,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
-            self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
-            self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],choices = CHOICES_MENU,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
-            self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
+            self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],label='Locul %d' % i,widget=forms.Textarea(attrs={'style':"background: grey;width:70%;height:20px;"}))
+            self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],label='Nume participant',required=True,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
+            self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],label='Confirmare participare',choices = CHOICES_PARTY,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
+            self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],label='Adresă e-mail',required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
+            self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label='Preferințe culinare',choices = CHOICES_MENU,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
+            self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],label='Comentarii',required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
 
 
 
@@ -150,8 +150,8 @@ class invitees_form(forms.Form):
     already_seated=forms.CharField(widget=forms.Textarea,disabled=True)
 
 class invitees_form_non_su(forms.Form):
-    assigned_seats=forms.CharField(disabled=True)
-    already_seated=forms.CharField(widget=forms.Textarea,disabled=True)
+    assigned_seats=forms.CharField(disabled=True, label='Locuri ocupate')
+    already_seated=forms.CharField(widget=forms.Textarea,disabled=True, label='Persoane așezate')
 
 class invitees_disp(forms.Form):
 

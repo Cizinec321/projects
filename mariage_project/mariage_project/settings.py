@@ -25,7 +25,7 @@ SECRET_KEY = 'tg3z^go3ttw4q2j2v4g6_&r%&+!cwte$vpnnf&(w=m-gn7%-ru'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["mateivelich.pythonanywhere.com", "127.0.0.1","192.168.1.2","localhost"]
+ALLOWED_HOSTS = ["mateivelich.pythonanywhere.com", "127.0.0.1","192.168.1.109","localhost"]
 
 
 # Application definition

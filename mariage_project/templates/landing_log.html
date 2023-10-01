@@ -77,7 +77,7 @@
        {% endautoescape %}
        {% autoescape on %}   
        {% if request.user.is_superuser %}
-       <tr><th></th><th><button type="submit" class="pos_button2" name="save_participant" value="1" >Submit</button></th><td></td></tr></table></form>
+       <tr><th></th><th><button type="submit" class="pos_button2" name="save_participant" value="1" >Salvare</button></th><td></td></tr></table></form>
        {% else %}
        {% endif %}
        {% endautoescape %}
@@ -95,7 +95,7 @@
        {% autoescape on %}       
        <div class='dropbtn2' id="{{ forloop.counter0 }}seating"><form method='post'  name='login_request'><table style='width:100%'>       
        {{ form.as_p }}
-       <button  class='pos_button2' type='button' onclick='hide_current("{{ forloop.counter0 }}seating")';>Close</button>
+       <button  class='pos_button2' type='button' onclick='hide_current("{{ forloop.counter0 }}seating")';>Închide</button>
        {% endautoescape %}
        {% autoescape off %} 
        {% if request.user.is_superuser %}      
@@ -111,7 +111,7 @@
        {% autoescape on %} 
        <div class='dropbtn2' id="{{ forloop.counter0 }}utiz"><form method='post'  name='login_request'><table style='width:100%'> 
        {{ form.as_p }}
-       <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" >Submit</button></th><td></td></tr></table></form></div>
+       <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" >Salvare</button></th><td></td></tr></table></form></div>
        {% endautoescape %}
        {% autoescape off %}       
        {% endautoescape %}
