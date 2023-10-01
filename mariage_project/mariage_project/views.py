@@ -139,9 +139,9 @@ def home(request):
                                 invitees_inst.table_id = 'Not Assigned'
                                 invitees_inst.setting_name = 'Not Assigned'
                                 invitees_inst.e_mail = email
-                                invitees_inst.menu_prefference='We will eat anything'
+                                invitees_inst.menu_prefference='Mănânc orice'
                                 invitees_inst.Freeform_comments=''
-                                invitees_inst.particpation='Yes'
+                                invitees_inst.particpation='Nu'
                                 invitees_inst.save()
                 else:
                                 invitees_inst = invitees()            
@@ -151,9 +151,9 @@ def home(request):
                                 invitees_inst.setting_name = 'Not Assigned'
                                 invitees_inst.e_mail = email
                                 invitees_inst.real_name= str(username)
-                                invitees_inst.menu_prefference='We will eat anything'
+                                invitees_inst.menu_prefference='Mănânc orice'
                                 invitees_inst.Freeform_comments=''
-                                invitees_inst.particpation='Yes'
+                                invitees_inst.particpation='Nu'
                                 invitees_inst.save()
                 if request.user.is_superuser:
                         return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':'<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">','form_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Transmite</button></th><td></td></tr></table></form></div>','form_wrapper_end_non_su':'<tr><th></th><th></th><td></td></tr></table></form></div>','click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':'<div class="dropbtn2_show" id="register"><form method="post"  name="login_request"><table style="width:100%">','registerform_wrapper_end':'</div>','seatingform_wrapper_start':'<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">','seatingform_wrapper_end':'<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Transmite</button><button type="submit" class="pos_button2" name="publish_request" value="1" >Publică</button></th><td></td></tr></table></form></div>'})
