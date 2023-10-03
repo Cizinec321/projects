@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from .forms import loginform, registerform, changepwd, m_loginform, m_registerform,m_changepwd,invitees_form,invitees_form_non_su
 from django.db.models import Max
 from django.contrib.auth import authenticate, login, get_user_model, logout
-from . import email as ml
 from .models import tables,invitees_x_table, invitees
 import os
 import string

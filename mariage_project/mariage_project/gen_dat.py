@@ -31,22 +31,7 @@ def gen_text():
             '</div>'
     return outval
 
-def get_party_list(table_id,setting_id):
 
-    query_res=invitees_x_table.objects.filter(table_id=table_id,setting_name=setting_id)
-    outval='<table style="top: 5%;position: relative;"><tbody><tr><th style="text-align: left;"><label >Seated invitees:<br><br></label></th></tr>'
-    for x in  query_res:
-        outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.r_name)+'</label></th></tr>'
-    outval=outval+'</tbody></table>'
-    return outval
-def get_party_names(table_id,setting_id):
-
-    query_res=invitees_x_table.objects.filter(table_id=table_id,setting_name=setting_id)
-    outval='<table style="top: 5%;position: relative;"><tbody><tr><th style="text-align: left;"><label >Seated invitees:<br><br></label></th></tr>'
-    for x in  query_res:
-        outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.name)+'</label></th></tr>'
-    outval=outval+'</tbody></table>'
-    return outval
 
 def get_party_full():
     User = get_user_model()

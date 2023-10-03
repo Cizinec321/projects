@@ -83,8 +83,9 @@
        {% endautoescape %}
        {% autoescape off %}
        {{click_ee_list}}
-       {{registerform_wrapper_end}}
-
+       {% autoescape on %} 
+       </div>
+       {% endautoescape %}
        
 
        {% endautoescape %}

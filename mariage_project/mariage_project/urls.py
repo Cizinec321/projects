@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views, seating_admin
-from. import identity_management as im
+from . import views
+
 
 
 urlpatterns = [
     path('',views.home, name='home'), #ok
-    path('seating_admin',seating_admin.seating_admin_REV, name='seating_admin'), #move this to home page
     path('admin/', admin.site.urls), #admin site remaining active
 
 ]
