@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 import datetime
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import loginform,registerform,seating_generator,prefferences
+from .forms import loginform,registerform,seating_generator,loginformEN
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from . import gen_dat
 from . import seating_algo
@@ -12,40 +12,64 @@ from django.db.models import Max
 def home(request):
         agent = request.META["HTTP_USER_AGENT"]
         #standard form parameters
-        login_form=loginform(request.POST or None)
         register_form=registerform(request.POST or None)
         seating_form=seating_generator(request.POST or None)
-
-        #standard template parameters
-        form_wrapper_start_def='<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">'
-        form_wrapper_end_seat_aloc='<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Schimbă</button></th><td></td></tr></table></form></div>'
-        form_wrapper_end_seat_gen='<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Transmite</button></th><td></td></tr></table></form></div>'
-        form_wrapper_end_not_log='<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Conectare</button></th><td></td></tr></table></form></div>'
-        form_wrapper_end_non_su_nobutton='<tr><th></th><th></th><td></td></tr></table></form></div>'
-        form_wrapper_end_non_su_wbutton='<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Schimbă</button></th><td></td></tr></table></form></div>'
-        registerform_wrapper_start_hidden='<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">'
-        registerform_wrapper_start_show='<div class="dropbtn2_show" id="register"><form method="post"  name="login_request"><table style="width:100%">'
-        seatingform_wrapper_start_show='<div class="dropbtn2_alt_show" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
-        seatingform_wrapper_start_hide='<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
-        seatingform_wrapper_start_hide_alt='<div class="dropbtn2_alt" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
-        seatingform_wrapper_start_show_wbutton='<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Închide</button></form>'
-        seatingform_wrapper_end_wbutton='<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Transmite</button><button type="submit" class="pos_button2" name="publish_request" value="1" >Publică</button></th><td></td></tr></table></form></div>'
-        seatingform_wrapper_end_nobutton='<tr><th></th><th></th><td></td></tr></table></form></div>'
 
         #html parameters
         uval=request.GET.get('uval')
         pval=request.GET.get('pval')
+        langval=request.GET.get('lang')
+
+        if langval=='EN':
+                #standard EN template parameters
+                login_form=loginformEN(request.POST or None)
+                form_wrapper_start_def='<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">'
+                form_wrapper_end_seat_aloc='<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Change</button></th><td></td></tr></table></form></div>'
+                form_wrapper_end_seat_gen='<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Send</button></th><td></td></tr></table></form></div>'
+                form_wrapper_end_not_log='<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Connect</button></th><td></td></tr></table></form></div>'
+                form_wrapper_end_non_su_nobutton='<tr><th></th><th></th><td></td></tr></table></form></div>'
+                form_wrapper_end_non_su_wbutton='<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Change</button></th><td></td></tr></table></form></div>'
+                registerform_wrapper_start_hidden='<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">'
+                registerform_wrapper_start_show='<div class="dropbtn2_show" id="register"><form method="post"  name="login_request"><table style="width:100%">'
+                seatingform_wrapper_start_show='<div class="dropbtn2_alt_show" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
+                seatingform_wrapper_start_hide='<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
+                seatingform_wrapper_start_hide_alt='<div class="dropbtn2_alt" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
+                seatingform_wrapper_start_show_wbutton='<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Close</button></form>'
+                seatingform_wrapper_end_wbutton='<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Transmite</button><button type="submit" class="pos_button2" name="publish_request" value="1" >Publish</button></th><td></td></tr></table></form></div>'
+                seatingform_wrapper_end_nobutton='<tr><th></th><th></th><td></td></tr></table></form></div>'
+        else:
+                #standard RO template parameters
+                login_form=loginform(request.POST or None)
+                form_wrapper_start_def='<div class="dropbtn2" id="login"><form method="post"  name="login_request"><table style="width:100%">'
+                form_wrapper_end_seat_aloc='<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Schimbă</button></th><td></td></tr></table></form></div>'
+                form_wrapper_end_seat_gen='<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1">Transmite</button></th><td></td></tr></table></form></div>'
+                form_wrapper_end_not_log='<tr><th></th><th><button type="submit" class="pos_button2" name="login_request" value="1" >Conectare</button></th><td></td></tr></table></form></div>'
+                form_wrapper_end_non_su_nobutton='<tr><th></th><th></th><td></td></tr></table></form></div>'
+                form_wrapper_end_non_su_wbutton='<tr><th></th><th><button type="submit" class="pos_button2" name="add_participant" value="1">Schimbă</button></th><td></td></tr></table></form></div>'
+                registerform_wrapper_start_hidden='<div class="dropbtn2" id="register"><form method="post"  name="login_request"><table style="width:100%">'
+                registerform_wrapper_start_show='<div class="dropbtn2_show" id="register"><form method="post"  name="login_request"><table style="width:100%">'
+                seatingform_wrapper_start_show='<div class="dropbtn2_alt_show" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
+                seatingform_wrapper_start_hide='<div class="dropbtn2" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
+                seatingform_wrapper_start_hide_alt='<div class="dropbtn2_alt" id="seating"><form method="post"  name="seating_request"><table style="width:100%">'
+                seatingform_wrapper_start_show_wbutton='<div class="dropbtn2_alt_show" id="seating"><form method="post"><button type="submit" class="pos_button_unload" value="1">Închide</button></form>'
+                seatingform_wrapper_end_wbutton='<tr><th></th><th><button type="submit" class="pos_button2" name="seating_request" value="1" >Transmite</button><button type="submit" class="pos_button2" name="publish_request" value="1" >Publică</button></th><td></td></tr></table></form></div>'
+                seatingform_wrapper_end_nobutton='<tr><th></th><th></th><td></td></tr></table></form></div>'
+
+
+
+
+
 
 
 
         if uval!=None and pval!=None:
                 user=authenticate(request,username=uval,password=pval)
                 if user==None:
-                       return render(request,'landing.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_not_log})
+                       return render(request,'landing.html',{'language':langval,'language':langval,'click_check_div3':gen_dat.gen_text(langval),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_not_log})
                 else:
                         login(request,user)
                         if not request.user.is_superuser:
-                                output_l_non_su=seating_algo.seat_load_non_su(request.user)
+                                output_l_non_su=seating_algo.seat_load_non_su(request.user,langval)
                                 seating_table_non_su=output_l_non_su[0]
                                 form_list_non_su=output_l_non_su[1] 
 
@@ -58,7 +82,7 @@ def home(request):
                 user=authenticate(request,username=username,password=password)
                 login(request,user)
                 if not request.user.is_superuser:
-                        output_l_non_su=seating_algo.seat_load_non_su(request.user)
+                        output_l_non_su=seating_algo.seat_load_non_su(request.user,langval)
                         seating_table_non_su=output_l_non_su[0]
                         form_list_non_su=output_l_non_su[1] 
                 
@@ -73,9 +97,9 @@ def home(request):
                 seating_table=output_l[0]
                 form_list=output_l[1]
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
                 else:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
                 
               else:
                 horizontal=request.POST['horizontal']
@@ -95,18 +119,18 @@ def home(request):
                 seating_table=output_l[0]
                 form_list=output_l[1]
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
                 else:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
         if request.POST.get("publish_request"):
                 template=request.POST['template']    
                 tables.objects.update(published=0)
                 tables.objects.filter(setting_name=template).update(published=1)
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
                 else:
                        
-                       return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
+                       return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
         
                 
         if request.POST.get('add_participant'):
@@ -129,9 +153,9 @@ def home(request):
                 form_list=output_l[1]
               
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_table,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
                 else:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_aloc,'form_wrapper_end_non_su':form_wrapper_end_non_su_wbutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_show_wbutton,'seatingform_wrapper_end':'</div>'})
                 
                        
         if request.POST.get('save_participant'):
@@ -166,9 +190,9 @@ def home(request):
                                 invitees_inst.particpation='Nu'
                                 invitees_inst.save()
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
                 else:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_show,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_show,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
                 
                        
         if request.POST.get("delete_participant"):
@@ -177,15 +201,15 @@ def home(request):
                 invitees.objects.filter(name__startswith=str(request.POST.get("delete_participant"))).delete()
                 invitees_x_table.objects.filter(name__startswith=str(request.POST.get("delete_participant"))).delete()
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
                 else:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_show,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_show,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
                 
                        
 
         if request.POST.get("inv_save"):
                 if not request.user.is_superuser:
-                        output_l_non_su=seating_algo.seat_load_non_su(request.user)
+                        output_l_non_su=seating_algo.seat_load_non_su(request.user,langval)
                         seating_table_non_su=output_l_non_su[0]
                         form_list_non_su=output_l_non_su[1]  
                 post_data = request.POST
@@ -198,17 +222,17 @@ def home(request):
                                invitees.objects.filter(name=invitee).update(real_name=post_data['Participant_Name_'+str(num)],particpation=post_data['Participation_'+str(num)],e_mail=post_data['Email_Adrress_'+str(num)],menu_prefference=post_data['Menu_prefference_'+str(num)],Freeform_comments=post_data['Freeform_comments_'+str(num)])
                                
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
                 else:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide_alt,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_show,'seatingform_wrapper_start':seatingform_wrapper_start_hide_alt,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
                 
         if request.user.is_authenticated:
                 if request.user.is_superuser:
-                        return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
+                        return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_form_register':register_form,'click_ee_list':gen_dat.get_party_full(),'click_form_seating':seating_form,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_hide,'seatingform_wrapper_end':seatingform_wrapper_end_wbutton})
                 else:
                        
-                       return render(request,'landing_log.html',{'click_check_div3':gen_dat.gen_text(),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_hide_alt,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
+                       return render(request,'landing_log.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'seat_handling_form':form_list_non_su,'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load_non_su(request.user,langval),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_seat_gen,'form_wrapper_end_non_su':form_wrapper_end_non_su_nobutton,'click_ee_list':gen_dat.get_party_full_non_su(request.user,langval),'click_form_seating':seating_table_non_su,'registerform_wrapper_start':registerform_wrapper_start_hidden,'seatingform_wrapper_start':seatingform_wrapper_start_hide_alt,'seatingform_wrapper_end':seatingform_wrapper_end_nobutton})
         
                        
         else:
-                return render(request,'landing.html',{'click_check_div3':gen_dat.gen_text(),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_not_log})
+                return render(request,'landing.html',{'language':langval,'click_check_div3':gen_dat.gen_text(langval),'click_form_login':login_form,'invitees_handling_form':gen_dat.details_load(),'form_wrapper_start':form_wrapper_start_def,'form_wrapper_end':form_wrapper_end_not_log})

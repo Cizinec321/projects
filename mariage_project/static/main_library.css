@@ -187,7 +187,25 @@
     opacity: 100%;
   }
 
+  .icon-about1EN {
+    background-image:url("about2EN.svg");
+    background-size:100%;
+    display: block;
+    position: absolute;
+    width: 30vw;
+    height: 5vh;
+    top:10%;
+    left:5%;
+    background-repeat:no-repeat;
+    opacity: 50%;
+    border: none;
+    background-color: transparent;
+  }
 
+
+  .icon-about1EN:hover {
+    opacity: 100%;
+  }
 .icon-contact1 {
   background-image:url("contact1.svg");
   background-size:100%;
@@ -223,6 +241,30 @@ opacity: 100%;
 
 }
 
+.icon-contact1nlEN {
+  background-image:url("contact2EN.svg");
+  background-size:100%;
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:30%;
+  left:5%;
+  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
+}
+
+
+
+
+.icon-contact1nlEN:Hover
+{
+opacity: 100%;
+
+}
+
 .icon-education1 {
   background-image:url("education2.svg");
   background-size:100%;
@@ -243,7 +285,26 @@ opacity: 100%;
 .icon-education1:hover {
 opacity:100%;
 }
+.icon-education1EN {
+  background-image:url("education2EN.svg");
+  background-size:100%;
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:20%;
+  left:5%;
+  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
+}
 
+
+
+.icon-education1EN:hover {
+opacity:100%;
+}
 
 .icon-xp2 {
   background-image:url("experience2.svg");
@@ -268,7 +329,28 @@ opacity: 100;
 
 }
 
+.icon-xp2EN {
+  background-image:url("experience2EN.svg");
+  background-size:100%;
+  display:block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:40%;
+  left:5%;
+  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
+}
 
+
+
+.icon-xp2EN:Hover
+{
+opacity: 100;
+
+}
 
 .icon-nu1 {
   background-image:url("nu2.svg");
@@ -287,6 +369,28 @@ opacity: 100;
 
 
 .icon-nu1:Hover
+{
+opacity: 100%;
+}
+
+
+.icon-nu1EN {
+  background-image:url("nu2EN.svg");
+  background-size:100%;
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:50%;
+  left:5%;
+  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
+}
+
+
+.icon-nu1EN:Hover
 {
 opacity: 100%;
 }
@@ -312,6 +416,29 @@ opacity: 100%;
 opacity: 100%;
 
 }
+
+
+.icon-nu1nlEN {
+  background-image:url("nu2nlEN.svg");
+  background-size:100%;
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:40%;
+  left:5%;
+  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
+}
+
+
+.icon-nu1nlEN:Hover
+{
+opacity: 100%;
+
+}
 .icon-nu3 {
   background-image:url("register2.svg");
   background-size:100%;
@@ -332,7 +459,26 @@ opacity: 100%;
 opacity: 100%;
 
 }
+.icon-nu3EN {
+  background-image:url("register2EN.svg");
+  background-size:100%;
+  display: block;
+  position: absolute;
+  width: 30vw;
+  height: 5vh;
+  top:60%;
+  left:5%;
+  background-repeat:no-repeat;
+  opacity:50%;
+  background-color: transparent;
+  border:none;
+}
 
+.icon-nu3EN:Hover
+{
+opacity: 100%;
+
+}
 
 
 

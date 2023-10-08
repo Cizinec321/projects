@@ -2,7 +2,7 @@
 from django.contrib.auth import  authenticate, login, get_user_model, logout
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from .forms import loginform, registerform, changepwd, m_loginform, m_registerform,m_changepwd,invitees_form,invitees_form_non_su
+from .forms import loginform, registerform, changepwd, m_loginform, m_registerform,m_changepwd,invitees_form,invitees_form_non_su,invitees_form_non_suEN
 from django.db.models import Max
 from django.contrib.auth import authenticate, login, get_user_model, logout
 from .models import tables,invitees_x_table, invitees
@@ -78,7 +78,7 @@ def seat_load(name):
 
         return out_html,form_list
     
-def seat_load_non_su(unm):
+def seat_load_non_su(unm, lng):
  
     cnt=tables.objects.filter(published=1).count()
     if cnt>0:
@@ -112,8 +112,11 @@ def seat_load_non_su(unm):
                     for nm in inv_list:
                         str_inv_list=str_inv_list+nm+'\n'
                     data_dict = {'assigned_seats':invitees_x_table.objects.filter(table_id=(str(i+1)+str(z+1)),setting_name=name).count(),'already_seated':str_inv_list}  
-                    if any(nm in str_inv_list for nm in real_names):                     
-                        form_list.append(invitees_form_non_su(initial=data_dict))
+                    if any(nm in str_inv_list for nm in real_names):   
+                        if lng=='EN':
+                            form_list.append(invitees_form_non_suEN(initial=data_dict))
+                        else:
+                            form_list.append(invitees_form_non_su(initial=data_dict))
                         but_count=but_count+1
                         out_html=out_html+'<div style="align-items: center;position: absolute;height:'+str(circleh)+ 'vh;'+' width:'+str(circleh)+'vh;top:'+str(top)+'vh;left:'+str(left)+'vw;"><span class="table_noselect" style="top:5px;align-items: center;height: '+str(circleh)+'vh; width: '+str(circleh)+'vh; border-radius: 50%; display: inline-block;position: relative"><form method="post" style="position: absolute;align-items: center;height:'+str(circleh)+ 'vh;'+' width:'+str(circleh)+'vh;"><button type="button" name="table_home" value="1" style="background-color: red;top:'+str((circleh/2)-(circleh/5))+ 'vh;color: white;border: none;border-radius: 70%;position: relative;padding:'+str(circleh/10)+'vh;font-size: 16px;" onclick=document.getElementById('+chr(39)+str(but_count)+'seating'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>'+str(but_count_orig+1).zfill(2)+'</button></form></span></div>'
                     

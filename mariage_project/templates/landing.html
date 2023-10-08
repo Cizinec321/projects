@@ -24,12 +24,17 @@
 
 
 {%block div1%}
+       {% if language == "EN" %}
+       <button  class="icon-about1EN" type="button" onclick="hideall_except('aboutus');if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>
+       <button  class="icon-education1EN" type="button" onclick="hideall_except('aboutyou');if (document.getElementById('aboutyou').className=='main_hidetxt'){document.getElementById('aboutyou').className='main_showtxt'}";></button>
+       <button  class="icon-contact1nlEN" type="button" onclick="hideall_except('contact');if (document.getElementById('contact').className=='main_hidetxt'){document.getElementById('contact').className='main_showtxt'}";></button>
+       <button  class="icon-nu1nlEN" type="button" onclick="hideall_except('login');if (document.getElementById('login').className=='dropbtn2'){document.getElementById('login').className='dropbtn2_show'}";></button>
+       {% else %}
        <button  class="icon-about1" type="button" onclick="hideall_except('aboutus');if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>
        <button  class="icon-education1" type="button" onclick="hideall_except('aboutyou');if (document.getElementById('aboutyou').className=='main_hidetxt'){document.getElementById('aboutyou').className='main_showtxt'}";></button>
        <button  class="icon-contact1nl" type="button" onclick="hideall_except('contact');if (document.getElementById('contact').className=='main_hidetxt'){document.getElementById('contact').className='main_showtxt'}";></button>
        <button  class="icon-nu1nl" type="button" onclick="hideall_except('login');if (document.getElementById('login').className=='dropbtn2'){document.getElementById('login').className='dropbtn2_show'}";></button>
-
-
+       {% endif %}
 {%endblock%}
 
 
