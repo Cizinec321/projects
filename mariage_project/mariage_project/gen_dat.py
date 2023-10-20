@@ -7,7 +7,7 @@ import string
 def gen_text(lng):
         if lng=='EN':
             outval='<div class="main_hidetxt" id="aboutus">'\
-                    '<p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 2em;background: rgba(255, 255, 255, 0.7); margin-top: 10em; margin-bottom: 0em; text-align: left;"><b>About us</b><br><br>'\
+                    '<p class="pclass"><b>About us</b><br><br>'\
                     'We are Bianca and Matei - or Bia and Matei, Bianca and Edi, Bianca and Eduard. Before we were Bianca and Matei, we were Bianca, HR Team UK advusor and Matei, the guy with the reports, SAP and automatization from BAS. We worked for the same company, same function, sometimes the same floor, but we were far from being in love. On the contrary, Bianca had a deep antipathy mixed with fear for Matei. Around summer 2018, Matei thought that Bianca is a cool gal and, according to him, started flirting. But his efforts were not noticed, because Bianca was busy regulating her blood pressure after every e-mail with grammar mistakes she got from Matei.<br><br>'\
                     'During winter 2018, we started working toghether on a project. Spending allot of time toghether and often the alst desperate people on the 4th floor still working at 7PM, Bianca''s anthypathy and fear transformed into sympathy. When Matei mentioned one of his reccuring nightmare and Bianca noticed it''s the same one as hers, specifically taking a math test, Bianca knew they were supposed to, at least, be friends. After some more weeks, Bianca jokingly told a friend that she will marry Matei if he fixed a tool for her, which he did, thus sealing their fate.<br><br>'\
                     'On December 16th 2018, Bianca texted “LMA și SCM” (Happy birthday) to Matei , and extended their discussions from Skype for Business and Outlook to texting outside working hours. So, the flirting started from both sides, salted with jokes stolen from Sector 7, which worked so well (thanks to our advanced flirting skills), that in February 2019 was still exclusivelly professional, but with allot of laughter thanks to our joke exchanges.<br><br>'\
@@ -17,7 +17,7 @@ def gen_text(lng):
                     'Because you are a part of our life, we would like you to celebrate with us while we write the next chapters of our lives.<br>'\
                     '</div>'\
                     '<div class="main_hidetxt" id="aboutyou">'\
-                    '<p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 2em;background: rgba(255, 255, 255, 0.7); margin-top: 10em; margin-bottom: 0em; text-align: left;"><b>About you and your participation</b><br><br>'\
+                    '<p class="pclass"><b>About you and your participation</b><br><br>'\
                     "Because we are a organised and tech savy couple, we would appreciate if you could use the form on this website to RSVP, fill in your dietary prefferences and contact details.<br><br>"\
                     "We will start with the legal ceremony at Village by the Lake in Gilău, saturday 1st of June 2024 11:00AM, and the religious ceremony will take place at the All Saints catholic church in Florești 02:00PM.<br><br>"\
                     "The party will be at Wonderland, Orhideea lounge, starting with 03:30PM.<br><br>"\
@@ -27,13 +27,13 @@ def gen_text(lng):
                     "</p>"\
                     '</div>'\
                     '<div class="main_hidetxt" id="contact">'\
-                    '<p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 2em; margin-top: 5em; margin-bottom: 0em; text-align: left;"><b>Contact</b><br><br><br>'\
+                    '<p class="pclass"><b>Contact</b><br><br><br>'\
                     "<b>Email:</b> velich.eduard[at]gmail.com<br>"\
                     '</div>'
              
         else:
             outval='<div class="main_hidetxt" id="aboutus">'\
-                    '<p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 2em;background: rgba(255, 255, 255, 0.7); margin-top: 10em; margin-bottom: 0em; text-align: left;"><b>Despre noi</b><br><br>'\
+                    '<p class="pclass"><b>Despre noi</b><br><br>'\
                     'Suntem Bianca și Matei - sau Bia și Matei, Bianca și Edi, Bianca și Eduard. Înainte sa fim Bianca si Matei, eram Bianca, advisorul din HR Team UK si Matei, tipul cu rapoarte, SAP și automatizări din BAS. Lucram la aceeași companie, in aceeași funcțiune, uneori la același etaj, dar eram departe de a fi îndrăgostiți unul de altul. Din contra, Bianca nutrea o profunda antipatie amestecată cu frica fata de Matei. Prin vara anului 2018, lui Matei i s-a părut ca Bianca e o tipa mișto și, susține el, a început sa flirteze cu ea, dar eforturile i-au trecut complet neobservate, caci Bianca era ocupată sa își regleze tensiunea la fiecare mail cu erori găsite in sistem primite de la Matei.<br><br>'\
                     'Pe la începutul iernii 2018, am început sa lucram împreuna la un proiect de automatizare. Petrecând destul de mult împreuna și adesea rămânând ultimii disperați de la etajul 4 încă lucrând la ora 19, antipatia și frica Biancăi s-au transformat in simpatie. Când Matei i-a spus Biancăi ca unul dintre coșmarurile lui recurente este identic cu al ei, anume test/teza la mate, Bianca a știut ca trebuie sa fie unul parte din viața ceiluilalt, măcar ca buni prieteni. După alte câteva săptămâni, de altfel, Bianca i-a spus prietenei ei ca dacă Matei ii repara ceva la instrumentul de automatizare, se și mărita cu el - Matei a reparat, deci practic soarta a fost pecetluită din acel moment.<br><br>'\
                     'Pe 16 Decembrie 2018, Bianca i-a scris “LMA și SCM” lui Matei pe messenger, și a extins altfel discuțiile noastre de pe Skype for Business și Outlook la messenger in afara orelor de munca. A început de atunci un flirt din ambele părți, presărat cu glume furate de la Sector 7, care a mers așa de bine (datorită capacității noastre avansate de a flirta), încât in Februarie 2019 relația noastră era in continuare exclusiv profesională, cu multe râsete datorate mesajelor virtuale.<br><br>'\
@@ -43,7 +43,7 @@ def gen_text(lng):
                     'Pentru ca sunteți parte din viața noastră, ne dorim sa ne fiti alături in aceasta data, cât si in timp ce scriem noile capitole ale vieții noastre.<br>'\
                     '</div>'\
                     '<div class="main_hidetxt" id="aboutyou">'\
-                    '<p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 2em;background: rgba(255, 255, 255, 0.7); margin-top: 10em; margin-bottom: 0em; text-align: left;"><b>Despre voi și participarea voastră</b><br><br>'\
+                    '<p class="pclass"><b>Despre voi și participarea voastră</b><br><br>'\
                     "Pentru că suntem un cuplu ultra conectat la tehnologie si organizat, vă rugăm să folosiți formularul pentru a ne confirma prezența voastră la nuntă, cât si detalii legate despre preferințe alimentare, si mai ales date de contact.<br><br>"\
                     "Vom incepe cu o ceremonie la Village by The Lake in comuna Gilău, sămbătă 1 Iunie 2024 ora 11:00, iar Cununia Religioasă va avea loc la Biserica Catolică Toți Sfinții din Florești ora 14:00.<br><br>"\
                     "Petrecerea va avea loc la Wonderland, sala Orhideea, incepând cu ora 15:30.<br><br>"\
@@ -53,7 +53,7 @@ def gen_text(lng):
                     "</p>"\
                     '</div>'\
                     '<div class="main_hidetxt" id="contact">'\
-                    '<p style="font-size:17px; position: relative;margin-right: 2em;margin-left: 2em; margin-top: 5em; margin-bottom: 0em; text-align: left;"><b>Contact</b><br><br><br>'\
+                    '<p class="pclass"><b>Contact</b><br><br><br>'\
                     "<b>Email:</b> velich.eduard[at]gmail.com<br>"\
                     '</div>'
         return outval
@@ -83,9 +83,9 @@ def get_party_full_non_su(unm, lang):
             query_res=invitees.objects.filter(name__startswith=str(unm)).count()  
             party_res=invitees.objects.filter(name__startswith=str(unm),particpation='Da').count()   
             if lang=='EN':
-                outval=outval+'<tr><th style="text-align: left;"><label >'+str(unm)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left;"></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(unm)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Details</button></form></th></tr>'
+                outval=outval+'<tr><th style="text-align: left, width:auto;"><label >'+str(unm)+'</label></th>'+'<th style="text-align: left, width:auto;"><label >'+str(query_res)+' Seats</label></th>'+'<th style="text-align: left, width:auto;"><label >'+str(party_res)+' Participants</label></th>'+'<th style="text-align: left, width:auto;"></th>'+'<th style="text-align: left, width:auto;"><form method="post"><button type="button" name="edit_participant" value="'+str(unm)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+';document.getElementById('+chr(39)+'register'+chr(39)+').className='+chr(39)+'dropbtn2'+chr(39)+'>Details</button></form></th></tr>'
             else: 
-                outval=outval+'<tr><th style="text-align: left;"><label >'+str(unm)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Locuri</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participanți</label></th>'+'<th style="text-align: left;"></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(unm)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Detalii</button></form></th></tr>'
+                outval=outval+'<tr><th style="text-align: left, width:auto;"><label >'+str(unm)+'</label></th>'+'<th style="text-align: left, width:auto;"><label >'+str(query_res)+' Locuri</label></th>'+'<th style="text-align: left, width:auto;"><label >'+str(party_res)+' Participanți</label></th>'+'<th style="text-align: left, width:auto;"></th>'+'<th style="text-align: left, width:auto;"><form method="post"><button type="button" name="edit_participant" value="'+str(unm)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+';document.getElementById('+chr(39)+'register'+chr(39)+').className='+chr(39)+'dropbtn2'+chr(39)+'>Detalii</button></form></th></tr>'
             but_count=but_count+1
     outval=outval+'</tbody></table>'
     return outval
