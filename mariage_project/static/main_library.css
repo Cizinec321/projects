@@ -1,5 +1,9 @@
 @media (orientation:landscape)  {
   ul.errorlist {display:none;}
+
+  .icon-show_mob{
+    display: none;
+  }
   .pos1{
     background-color: white;   
 
@@ -832,17 +836,33 @@ width:100%;
 @media (orientation:portrait)  {
   ul.errorlist {display:none;}
   .pos1{
-    background-color: white;   
-
+    background-color: rgb(238, 188, 235,0.7);   
     color: black;
     position: absolute;
-    height:10vh;
+    height:45vh;
+    width:100vw;
+    text-align: center;
+    top:-40vh;
+    left: 0vh;
+    border-radius: 25px;
+    z-index: -1;
+    transition: all 0.5s ease;
+
+  }
+
+  .pos1_show{
+    background-color: rgb(238, 188, 235,1);   
+    color: black;
+    position: absolute;
+    height:45vh;
     width:100vw;
     text-align: center;
     top:0vh;
-    bottom: 0vh;
+    bottom: 30vh;
     left: 0vh;
-
+    border-radius: 25px;
+    z-index: 99999;
+    transition: all 0.5s ease;
 
   }
 
@@ -867,13 +887,15 @@ width:100%;
     background-image:url("peony.png");
     background-repeat: no-repeat;
     background-position: right bottom;
-    height:90vh;
+    height:95vh;
     width:100vw;
     left:0vw;
     bottom: 0vh;
-    top:10vh;
+    top:5vh;
     text-align: center;
     overflow: auto;
+    transition: all 0.5s ease;
+    
   }
 
   .pos4{
@@ -1003,41 +1025,33 @@ width:100%;
     background-image:url("about2.svg");
     background-size:100%;
     display: block;
-    position: absolute;
-    width: 30vw;
+    position: relative;
+    width: 100vw;
     height: 5vh;
-    top:10%;
-    left:5%;
+    top:5%;
+    left:1%;
     background-repeat:no-repeat;
-    opacity: 50%;
+    opacity: 100%;
     border: none;
     background-color: transparent;
   }
 
-
-  .icon-about1:hover {
-    opacity: 100%;
-  }
 
   .icon-about1EN {
     background-image:url("about2EN.svg");
     background-size:100%;
     display: block;
-    position: absolute;
-    width: 30vw;
+    position: relative;
+    width: 100vw;
     height: 5vh;
-    top:10%;
-    left:5%;
+    top:5%;
+    left:1%;
     background-repeat:no-repeat;
-    opacity: 50%;
+    opacity: 100%;
     border: none;
     background-color: transparent;
   }
 
-
-  .icon-about1EN:hover {
-    opacity: 100%;
-  }
 .icon-contact1 {
   background-image:url("contact1.svg");
   background-size:100%;
@@ -1046,163 +1060,121 @@ width:100%;
   width: 30vw;
   height: 5vh;
   top:40%;
-  left:5%;
+  left:1%;
   background-repeat:no-repeat;
 }
 .icon-contact1nl {
   background-image:url("contact2.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:30%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
   background-color: transparent;
   border:none;
 }
 
-
-
-
-.icon-contact1nl:Hover
-{
-opacity: 100%;
-
-}
 
 .icon-contact1nlEN {
   background-image:url("contact2EN.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:30%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
   background-color: transparent;
   border:none;
 }
 
-
-
-
-.icon-contact1nlEN:Hover
-{
-opacity: 100%;
-
-}
 
 .icon-education1 {
   background-image:url("education2.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:20%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity:100%;
   background-color: transparent;
   border:none;
 }
 
 
 
-.icon-education1:hover {
-opacity:100%;
-}
+
 .icon-education1EN {
   background-image:url("education2EN.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:20%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity:100%;
   background-color: transparent;
   border:none;
 }
 
-
-
-.icon-education1EN:hover {
-opacity:100%;
-}
 
 .icon-xp2 {
   background-image:url("experience2.svg");
   background-size:100%;
   display:block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:40%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100;
   background-color: transparent;
   border:none;
 }
 
-
-
-.icon-xp2:Hover
-{
-opacity: 100;
-
-}
 
 .icon-xp2EN {
   background-image:url("experience2EN.svg");
   background-size:100%;
   display:block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:40%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100;
   background-color: transparent;
   border:none;
 }
 
 
-
-.icon-xp2EN:Hover
-{
-opacity: 100;
-
-}
 
 .icon-nu1 {
   background-image:url("nu2.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:50%;
-  left:5%;
+  top:2vh;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
   background-color: transparent;
   border:none;
-}
-
-
-.icon-nu1:Hover
-{
-opacity: 100%;
 }
 
 
@@ -1210,112 +1182,94 @@ opacity: 100%;
   background-image:url("nu2EN.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:50%;
-  left:5%;
+  top:2vh;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
   background-color: transparent;
   border:none;
-}
-
-
-.icon-nu1EN:Hover
-{
-opacity: 100%;
 }
 
 .icon-nu1nl {
   background-image:url("nu2nl.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:40%;
-  left:5%;
+  top:5vh;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
   background-color: transparent;
   border:none;
 }
 
-
-.icon-nu1nl:Hover
-{
-opacity: 100%;
-
-}
 
 
 .icon-nu1nlEN {
   background-image:url("nu2nlEN.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:40%;
-  left:5%;
+  top:5vh;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
   background-color: transparent;
   border:none;
 }
 
 
-.icon-nu1nlEN:Hover
-{
-opacity: 100%;
-
-}
 .icon-nu3 {
   background-image:url("register2.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:60%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
+  background-color: transparent;
+  border:none;
+}
+.icon-show_mob{
+  background-image:url("show.svg");
+  background-size:100%;
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 5vh;
+  bottom:0%;
+  left:1%;
+  background-repeat:no-repeat;
+  opacity: 100%;
   background-color: transparent;
   border:none;
 }
 
-.icon-nu3:Hover
-{
-opacity: 100%;
-
-}
 .icon-nu3EN {
   background-image:url("register2EN.svg");
   background-size:100%;
   display: block;
-  position: absolute;
-  width: 30vw;
+  position: relative;
+  width: 100vw;
   height: 5vh;
-  top:60%;
-  left:5%;
+  top:5%;
+  left:1%;
   background-repeat:no-repeat;
-  opacity:50%;
+  opacity: 100%;
   background-color: transparent;
   border:none;
-}
-
-.icon-nu3EN:Hover
-{
-opacity: 100%;
 
 }
-
-
-
-
-
 
 .login_view
 {

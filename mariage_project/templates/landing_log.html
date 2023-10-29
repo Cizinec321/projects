@@ -14,6 +14,7 @@
                      if(exc!='contact'){document.getElementById('contact').className='main_hidetxt'};
                      if(exc!='login'){document.getElementById('login').className='dropbtn2'};
                      if(exc!='register'){document.getElementById('register').className='dropbtn2'};
+                     if(exc!='pos1'){document.getElementById('pos1').className='pos1'};
                      if(exc!='seating'){if (document.getElementById('seating').className=='dropbtn2_show'){document.getElementById('seating').className='dropbtn2'};if (document.getElementById('seating').className=='dropbtn2_alt_show'){document.getElementById('seating').className='dropbtn2_alt'}};
               }
 
@@ -50,6 +51,7 @@
        <button  class="icon-xp2EN" type="button" onclick="hideall_except('seating');hidealluser();hideallseating();if (document.getElementById('seating').className=='dropbtn2'){document.getElementById('seating').className='dropbtn2_show'};if (document.getElementById('seating').className=='dropbtn2_alt'){document.getElementById('seating').className='dropbtn2_alt_show'}";></button>
        <form method="post"  name="logout_request"><button  class="icon-nu1EN" type="submit" name="logout_request" value="1" ></button></form>
        <button  class="icon-nu3EN" type="button" onclick="hideall_except('register');hidealluser();hideallseating();if (document.getElementById('register').className=='dropbtn2'){document.getElementById('register').className='dropbtn2_show'}";></button>
+       <button  class="icon-show_mob" type="button" onclick="if (document.getElementById('pos1').className=='pos1'){document.getElementById('pos1').className='pos1_show'}else{document.getElementById('pos1').className='pos1'}";></button>
 {% else %}
        <button  class="icon-about1" type="button" onclick="hideall_except('aboutus');hidealluser();hideallseating();if (document.getElementById('aboutus').className=='main_hidetxt'){document.getElementById('aboutus').className='main_showtxt'}";></button>
        <button  class="icon-education1" type="button" onclick="hideall_except('aboutyou');hidealluser();hideallseating();if (document.getElementById('aboutyou').className=='main_hidetxt'){document.getElementById('aboutyou').className='main_showtxt'}";></button>
@@ -57,7 +59,8 @@
        <button  class="icon-xp2" type="button" onclick="hideall_except('seating');hidealluser();hideallseating();if (document.getElementById('seating').className=='dropbtn2'){document.getElementById('seating').className='dropbtn2_show'};if (document.getElementById('seating').className=='dropbtn2_alt'){document.getElementById('seating').className='dropbtn2_alt_show'}";></button>
        <form method="post"  name="logout_request"><button  class="icon-nu1" type="submit" name="logout_request" value="1" ></button></form>
        <button  class="icon-nu3" type="button" onclick="hideall_except('register');hidealluser();hideallseating();if (document.getElementById('register').className=='dropbtn2'){document.getElementById('register').className='dropbtn2_show'}";></button>
-{% endif %}
+       <button  class="icon-show_mob" type="button" onclick="if (document.getElementById('pos1').className=='pos1'){document.getElementById('pos1').className='pos1_show'}else{document.getElementById('pos1').className='pos1'}";></button>
+       {% endif %}
 
 
 {%endblock%}
