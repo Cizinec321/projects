@@ -10,8 +10,6 @@ from django.db.models import Max
 
 
 def home(request):
-        if request.user.is_authenticated:
-                logout(request)
         agent = request.META["HTTP_USER_AGENT"]
         #standard form parameters
         register_form=registerform(request.POST or None)
