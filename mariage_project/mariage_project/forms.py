@@ -23,9 +23,9 @@ class m_registerform(forms.Form):
 
 class registerform(forms.Form):
 
-    username=forms.CharField(label='Utilizator')
-    email=forms.EmailField(required=True, label='E-mail')
-    participants=forms.CharField(widget=forms.NumberInput, required=True, label='Participanți')
+    username=forms.CharField(widget=forms.Textarea(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Utilizator</p>'), label_suffix="")
+    email=forms.EmailField(widget=forms.Textarea(attrs={'class':'smf_pref'}),required=True, label=mark_safe('<p class="smf">E-mail</p>'), label_suffix="")
+    participants=forms.CharField(widget=forms.NumberInput(attrs={'class':'smf_pref'}), required=True, label=mark_safe('<p class="smf">Participanți</p>'), label_suffix="")
 
 class prefferences (forms.Form):
 
@@ -63,20 +63,20 @@ class prefferences (forms.Form):
             )
         if lng=='EN':
             for i in range(1, n+1):
-                self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],label=mark_safe('Seat %d <br />' % i), label_suffix="",widget=forms.Textarea(attrs={'style':"background: grey;width:70%;height:20px;"}))
-                self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],label=mark_safe('Participant name<br />'), label_suffix="",required=True,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
-                self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],label=mark_safe('RSVP<br />'), label_suffix="",choices = CHOICES_PARTY,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
-                self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],label=mark_safe('E-mail<br />'), label_suffix="",required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
-                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('Culinary prefferences<br />'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
-                self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],label=mark_safe('Coments<br />'), label_suffix="",required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
+                self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],label=mark_safe('<br><b><p class="smf_pref_lb">Seat %d </p></b>' % i), label_suffix="",widget=forms.Textarea(attrs={'class':'smf_pref_spec'}))
+                self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],label=mark_safe('<p class="smf_pref_lb">Participant name</p>'), label_suffix="",required=True,widget=forms.Textarea(attrs={'class':'smf_pref'}))
+                self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],label=mark_safe('<p class="smf_pref_lb">RSVP</p>'), label_suffix="",choices = CHOICES_PARTY,widget=forms.Select(attrs={'class':'smf_pref'}))
+                self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],label=mark_safe('<p class="smf_pref_lb">E-mail</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
+                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('<p class="smf_pref_lb">Culinary prefferences</p>'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'class':'smf_pref'}))
+                self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],label=mark_safe('<p class="smf_pref_lb">Coments</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
         else:
             for i in range(1, n+1):
-                self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],label=mark_safe('Locul %d <br />' % i), label_suffix="",widget=forms.Textarea(attrs={'style':"background: grey;width:70%;height:20px;"}))
-                self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],label=mark_safe('Nume participant<br />'), label_suffix="",required=True,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
-                self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],label=mark_safe('Confirmare participare<br />'), label_suffix="",choices = CHOICES_PARTY,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
-                self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],label=mark_safe('Adresă e-mail<br />'), label_suffix="",required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
-                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('Preferințe culinare<br />'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'style':"width:72%;height:20px;"}))
-                self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],label=mark_safe('Comentarii<br />'), label_suffix="",required=False,widget=forms.Textarea(attrs={'style':"width:70%;height:20px;"}))
+                self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],label=mark_safe('<br><b><p class="smf_pref_lb">Locul %d </p></b>' % i), label_suffix="",widget=forms.Textarea(attrs={'class':'smf_pref_spec'}))
+                self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],label=mark_safe('<p class="smf_pref_lb">Nume participant</p>'), label_suffix="",required=True,widget=forms.Textarea(attrs={'class':'smf_pref'}))
+                self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],label=mark_safe('<p class="smf_pref_lb">Confirmare participare</p>'), label_suffix="",choices = CHOICES_PARTY,widget=forms.Select(attrs={'class':'smf_pref'}))
+                self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],label=mark_safe('<p class="smf_pref_lb">Adresă e-mail</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
+                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('<p class="smf_pref_lb">Preferințe culinare</p>'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'class':'smf_pref'}))
+                self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],label=mark_safe('<p class="smf_pref_lb">Comentarii</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
 
 
 
@@ -100,24 +100,24 @@ class m_prefferences (forms.Form):
             ("No","No")
         )
         for i in range(1, n+1):
-            self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: grey;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
-            self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],required=True,widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
-            self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],choices = CHOICES_PARTY,widget=forms.Select(attrs={'style':"left:5px;position:relative;width:90%;height:60px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
-            self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
-            self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],choices = CHOICES_MENU,widget=forms.Select(attrs={'style':"left:5px;position:relative;width:90%;height:60px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
-            self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'style':"left:5px;position:relative;width:90%;height:30px;border: 20;background: white;outline: 2;top: 0px;font-size: 60%;text-align: center;font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-bottom: 10px;"}))
+            self.fields["Seat_%d" % i] = forms.CharField(initial=seat_no[i-1],widget=forms.Textarea(attrs={'class':'smf_pref'}))
+            self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],required=True,widget=forms.Textarea(attrs={'class':'smf_pref'}))
+            self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],choices = CHOICES_PARTY,widget=forms.Select(attrs={'class':'smf_pref'}))
+            self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
+            self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],choices = CHOICES_MENU,widget=forms.Select(attrs={'class':'smf_pref'}))
+            self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
             
 
 class loginform(forms.Form):
-    username=forms.CharField(label='Nume de utilizator')
+    username=forms.CharField(widget=forms.Textarea(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Nume de utilizator</p>'), label_suffix="")
     password=forms.CharField(
-        widget=forms.PasswordInput,label='Parolă'
+        widget=forms.PasswordInput(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Parolă</p>'), label_suffix=""
     )
 
 class loginformEN(forms.Form):
-    username=forms.CharField(label='Username')
+    username=forms.CharField(widget=forms.Textarea(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Username</p>'), label_suffix="")
     password=forms.CharField(
-        widget=forms.PasswordInput,label='Password'
+        widget=forms.PasswordInput(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Password</p>'), label_suffix=""
     )
 
 class m_loginform(forms.Form):
@@ -154,12 +154,12 @@ class m_input_form(forms.Form):
 
 
 class seating_generator(forms.Form):
-        vertical=forms.CharField(widget=forms.NumberInput, required=False)
-        horizontal=forms.CharField(widget=forms.NumberInput, required=False, label='Orizontal')
-        no_seats=forms.CharField(widget=forms.NumberInput, required=False, label='Nr locuri')
-        name=forms.CharField(required=False, label='Nume')
+        vertical=forms.CharField(widget=forms.NumberInput(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Vertical</p>'), label_suffix="", required=False)
+        horizontal=forms.CharField(widget=forms.NumberInput(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Horizontal</p>'), label_suffix="", required=False)
+        no_seats=forms.CharField(widget=forms.NumberInput(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">No of seats</p>'), label_suffix="", required=False)
+        name=forms.CharField(widget=forms.Textarea(attrs={'class':'smf_pref'}),label=mark_safe('<p class="smf">Name</p>'), label_suffix="",required=False)
         template= forms.ModelChoiceField(
-        queryset=tables.objects.values_list("setting_name", flat=True).distinct(), required=False, label='Model'
+        queryset=tables.objects.values_list("setting_name", flat=True).distinct(), required=False, label=mark_safe('<p class="smf">Model</p>'), label_suffix="",widget=forms.Select(attrs={'class':'smf_pref'}),
     )
 
 class m_seating_generator(forms.Form):
@@ -174,19 +174,19 @@ class m_seating_generator(forms.Form):
 
 class invitees_form(forms.Form):
 
-    name = forms.ModelChoiceField(invitees.objects.values_list("real_name", flat=True).filter(particpation='Da'), required=False, label='Nume participant')
-    table_id=forms.CharField(disabled=False, label='ID Masă')
-    setting_name=forms.CharField(disabled=True, label='Nume model')
-    assigned_seats=forms.CharField(disabled=True,label='Locuri ocupate')
-    already_seated=forms.CharField(widget=forms.Textarea,disabled=True, label='Persoane așezate')
+    name = forms.ModelChoiceField(invitees.objects.values_list("real_name", flat=True).filter(particpation='Da'), required=False,label=mark_safe('<p class="smf">Participant name</p>'), label_suffix="",widget=forms.Select(attrs={'class':'smf_pref'}))
+    table_id=forms.CharField(disabled=False, label=mark_safe('<p class="smf">Table ID</p>'), label_suffix="",widget=forms.Textarea(attrs={'class':'smf_pref'}))
+    setting_name=forms.CharField(disabled=True, label=mark_safe('<p class="smf">Model Name</p>'), label_suffix="",widget=forms.Textarea(attrs={'class':'smf_pref'}))
+    assigned_seats=forms.CharField(disabled=True,label=mark_safe('<p class="smf">Occupied seats</p>'), label_suffix="",widget=forms.Textarea(attrs={'class':'smf_pref'}))
+    already_seated=forms.CharField(widget=forms.Textarea(attrs={'class':'smf'}), label_suffix="",disabled=True, label=mark_safe('<p class="smf">Persoane așezate</p>'))
 
 class invitees_form_non_su(forms.Form):
-    assigned_seats=forms.CharField(disabled=True, label=mark_safe('Locuri ocupate<br />'), label_suffix="")
-    already_seated=forms.CharField(widget=forms.Textarea,disabled=True, label=mark_safe('Persoane așezate<br />'), label_suffix="")
+    assigned_seats=forms.CharField(disabled=True, widget= forms.TextInput(attrs={'class':'smf'}),label=mark_safe('<p class="smf">Locuri ocupate</p>'), label_suffix="")
+    already_seated=forms.CharField(widget=forms.Textarea(attrs={'class':'smf'}),disabled=True, label=mark_safe('<p class="smf">Persoane așezate</p>'), label_suffix="")
 
 class invitees_form_non_suEN(forms.Form):
-    assigned_seats=forms.CharField(disabled=True, label=mark_safe('Occupied seats<br />'), label_suffix="")
-    already_seated=forms.CharField(widget=forms.Textarea,disabled=True, label=mark_safe('Seated participants<br />'), label_suffix="")
+    assigned_seats=forms.CharField(disabled=True, widget= forms.TextInput(attrs={'class':'smf'}),label=mark_safe('<p class="smf">Occupied seats</p>'), label_suffix="")
+    already_seated=forms.CharField(widget=forms.Textarea(attrs={'class':'smf'}),disabled=True, label=mark_safe('<p class="smf">Seated participants</p>'), label_suffix="")
 
 class invitees_disp(forms.Form):
 

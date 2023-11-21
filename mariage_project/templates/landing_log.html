@@ -125,12 +125,12 @@
        {% for form in invitees_handling_form %}
        {% csrf_token %}
        {% autoescape on %} 
-       <div class='dropbtn2' id="{{ forloop.counter0 }}utiz"><form method='post'  name='login_request'><table style='width:100%'> 
+       <div class='dropbtn2' id="{{ forloop.counter0 }}utiz"><form method='post'  name='login_request' class='stf'><table style='width:100%'> 
        {{ form.as_p }}
        {% if language == "EN" %}
-       <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" >Save</button></th><td></td></tr></table></form></div>
+       <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" ><p class="smf_pref_lb">Save </p></button></th><td></td></tr></table></form></div>
        {% else %}
-       <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" >Salvare</button></th><td></td></tr></table></form></div>
+       <tr><th></th><th><button type="submit" class="pos_button2" name="inv_save" value="1" ><p class="smf_pref_lb">Salvare </p></button></th><td></td></tr></table></form></div>
        {% endif %}
        {% endautoescape %}
        {% autoescape off %}       

@@ -118,17 +118,20 @@ def seat_load_non_su(unm, lng):
                         else:
                             form_list.append(invitees_form_non_su(initial=data_dict))
                         but_count=but_count+1
-                        out_html=out_html+'<div style="display:inline-block;align-items: center;position: relative;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;top:5%;left:0%;"><span class="table_noselect" style="top:5px;align-items: center;height: 100%;aspect-ratio: 1 / 1;  border-radius: 50%; display: inline-block;position: relative"><form method="post" style="position: absolute;align-items: center;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;"><button type="button" name="table_home" value="1" style="background-color: red;top:'+str((circleh/2)-(circleh/5))+ '%;color: white;border: none;border-radius: 70%;position: relative;padding:5px;font-size: 16px;" onclick=document.getElementById('+chr(39)+str(but_count)+'seating'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>'+str(but_count_orig+1).zfill(2)+'</button></form></span></div>'
+                        out_html=out_html+'<div style="display:inline-block;align-items: center;position: relative;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;top:5%;left:0%;"><span class="table_noselect" style="top:5px;align-items: center;height: 100%;aspect-ratio: 1 / 1;  border-radius: 50%; display: inline-block;position: relative"><form method="post" style="position: absolute;align-items: center;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;"><button type="button" name="table_home" value="1" style="background-color: red;top:'+str((circleh/2)-(circleh/5))+ '%;color: white;border: none;border-radius: 70%;position: relative;padding:5px;" class="table_nu" onclick=document.getElementById('+chr(39)+str(but_count)+'seating'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>'+str(but_count_orig+1).zfill(2)+'</button></form></span></div>'
                     
                     else:
-                        out_html=out_html+'<div style="display:inline-block;align-items: center;position: relative;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;top:5%;left:0%;"><span class="table_noselect" style="top:5px;align-items: center;height: 100%;aspect-ratio: 1 / 1;  border-radius: 50%; display: inline-block;position: relative"><form method="post" style="position: absolute;align-items: center;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;"><button type="button" name="table_home" value="1" style="background-color: blue;top:'+str((circleh/2)-(circleh/5))+ '%;color: white;border: none;border-radius: 70%;position: relative;padding:5px;font-size: 16px;" onclick=document.getElementById().className='+chr(39)+'dropbtn2_show'+chr(39)+'>'+str(but_count_orig+1).zfill(2)+'</button></form></span></div>'
+                        out_html=out_html+'<div style="display:inline-block;align-items: center;position: relative;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;top:5%;left:0%;"><span class="table_noselect" style="top:5px;align-items: center;height: 100%;aspect-ratio: 1 / 1;  border-radius: 50%; display: inline-block;position: relative"><form method="post" style="position: absolute;align-items: center;height:'+str(circleh)+ '%;'+' aspect-ratio: 1 / 1;"><button type="button" name="table_home" value="1" style="background-color: blue;top:'+str((circleh/2)-(circleh/5))+ '%;color: white;border: none;border-radius: 70%;position: relative;padding:5px;"  class="table_nu" onclick=document.getElementById().className='+chr(39)+'dropbtn2_show'+chr(39)+'>'+str(but_count_orig+1).zfill(2)+'</button></form></span></div>'
                     but_count_orig=but_count_orig+1
                     top=top+height
                     
                 left=left+widht
     else:
         form_list=[]
-        out_html='<div class="dropbtn2_show"><form method="post"  name="refusal">Deocamndată nu a fost publicat un plan de așezare. Vă rugăm verificați mai tărziu.</form></div>'
+        if lng=='EN':
+            out_html='<div class="dropbtn2_show"><form method="post"  name="refusal"><p class="smf_pref_lb">A seating plan has not been publishet yet. Please check again later.</p></form></div>'
+        else:
+            out_html='<div class="dropbtn2_show"><form method="post"  name="refusal"><p class="smf_pref_lb">Deocamndată nu a fost publicat un plan de așezare. Vă rugăm verificați mai tărziu.</p></form></div>'
     return out_html,form_list
 
 
