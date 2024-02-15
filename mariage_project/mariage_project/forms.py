@@ -37,9 +37,8 @@ class prefferences (forms.Form):
         if lng=='EN':
             CHOICES_MENU =(
             ("Mănânc orice", "I will eat anything"),
-            ("Nu mănânc pește", "No fish"),
-            ("Nu mănânc pește și carne", "No fish or meat"),
-            ("Nu mănânc carne", "No meat"),
+            ("Vegan", "Vegan"),
+            ("Vegetarian", "Vegetarian"),
             ("Meniu copii", "Children's menu"),
             ("Altele (menționați in comentarii)", "Other (use comment section)"),
             )
@@ -51,9 +50,8 @@ class prefferences (forms.Form):
         else:
             CHOICES_MENU =(
             ("Mănânc orice", "Mănânc orice"),
-            ("Nu mănânc pește", "Nu mănânc pește"),
-            ("Nu mănânc pește și carne", "Nu mănânc pește și carne"),
-            ("Nu mănânc carne", "Nu mănânc carne"),
+            ("Vegan", "Vegan"),
+            ("Vegetarian", "Vegetarian"),
             ("Meniu copii", "Meniu copii"),
             ("Altele (menționați in comentarii)", "Altele (menționați in comentarii)"),
             )
@@ -67,7 +65,7 @@ class prefferences (forms.Form):
                 self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],label=mark_safe('<p class="smf_pref_lb">Participant name</p>'), label_suffix="",required=True,widget=forms.Textarea(attrs={'class':'smf_pref'}))
                 self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],label=mark_safe('<p class="smf_pref_lb">RSVP</p>'), label_suffix="",choices = CHOICES_PARTY,widget=forms.Select(attrs={'class':'smf_pref'}))
                 self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],label=mark_safe('<p class="smf_pref_lb">E-mail</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
-                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('<p class="smf_pref_lb">Culinary prefferences</p>'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'class':'smf_pref'}))
+                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('<p class="smf_pref_lb">Culinary restrictions</p>'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'class':'smf_pref'}))
                 self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],label=mark_safe('<p class="smf_pref_lb">Coments</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
         else:
             for i in range(1, n+1):
@@ -75,7 +73,7 @@ class prefferences (forms.Form):
                 self.fields["Participant_Name_%d" % i] = forms.CharField(initial=r_name[i-1],label=mark_safe('<p class="smf_pref_lb">Nume participant</p>'), label_suffix="",required=True,widget=forms.Textarea(attrs={'class':'smf_pref'}))
                 self.fields["Participation_%d" % i] = forms.ChoiceField(initial=party[i-1],label=mark_safe('<p class="smf_pref_lb">Confirmare participare</p>'), label_suffix="",choices = CHOICES_PARTY,widget=forms.Select(attrs={'class':'smf_pref'}))
                 self.fields["Email_Adrress_%d" % i] = forms.CharField(initial=email[i-1],label=mark_safe('<p class="smf_pref_lb">Adresă e-mail</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
-                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('<p class="smf_pref_lb">Preferințe culinare</p>'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'class':'smf_pref'}))
+                self.fields["Menu_prefference_%d" % i] = forms.ChoiceField(initial=menu_pref[i-1],label=mark_safe('<p class="smf_pref_lb">Restrictii culinare</p>'), label_suffix="",choices = CHOICES_MENU,widget=forms.Select(attrs={'class':'smf_pref'}))
                 self.fields["Freeform_comments_%d" % i] = forms.CharField(initial=f_comm[i-1],label=mark_safe('<p class="smf_pref_lb">Comentarii</p>'), label_suffix="",required=False,widget=forms.Textarea(attrs={'class':'smf_pref'}))
 
 

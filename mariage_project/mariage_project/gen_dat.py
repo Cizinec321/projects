@@ -63,7 +63,7 @@ def gen_text(lng, sh):
 def get_party_full():
     User = get_user_model()
     users = User.objects.all()
-    outval='<table style="top: 5%;position: relative; table-layout: fixed ; width: 100%; "><tbody>'
+    outval='<table style="top: 5%;position: relative; table-layout: fixed ; width: 100%; min-width:886px "><tbody>'
     but_count=0
     for x in  users:
         if str(x.username)!='admin':
@@ -107,14 +107,14 @@ def details_load():
     
     for items in users:
         if str(items.get_username())!='admin':
-            query_res=invitees.objects.filter(name__startswith=str(items.get_username())+' - seat').count()
+            query_res=invitees.objects.filter(name__startswith=str(items.get_username())+'_seat').count()
             seats_list=[]
             real_name=[]
             mail=[]
             menu_pref=[]
             f_comm=[]
             party=[]
-            for x in invitees.objects.filter(name__startswith=str(items.get_username())+' - seat').all():
+            for x in invitees.objects.filter(name__startswith=str(items.get_username())+'_seat').all():
                 seats_list.append(str(x.name))
                 real_name.append(str(x.real_name))
                 mail.append(str(x.e_mail))
@@ -129,14 +129,14 @@ def details_load_non_su(unm, lng):
 
     form_list=[]
     if str(unm)!='admin':
-            query_res=invitees.objects.filter(name__startswith=str(unm)+' - seat').count()
+            query_res=invitees.objects.filter(name__startswith=str(unm)+'_seat').count()
             seats_list=[]
             real_name=[]
             menu_pref=[]
             f_comm=[]
             party=[]
             mail=[]
-            for x in invitees.objects.filter(name__startswith=str(unm)+' - seat').all():
+            for x in invitees.objects.filter(name__startswith=str(unm)+'_seat').all():
                 seats_list.append(str(x.name))
                 real_name.append(str(x.real_name))
                 menu_pref.append(str(x.menu_prefference))

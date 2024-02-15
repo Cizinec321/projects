@@ -9,7 +9,7 @@
     font-size: 16px;
   }
   .pos1{
-    background-color: white;   
+    background-color: white;
 
     color: black;
     position: absolute;
@@ -87,7 +87,7 @@
     top:0vh;
     text-align: center;
     overflow: hidden;
-    
+
   }
 
   .pos5{
@@ -126,8 +126,8 @@
     position: relative;
     top: 1vh;
     right:0vw;
-  
-  
+
+
     }
 
 
@@ -181,12 +181,12 @@
     top: 5px;
     right:5px;
     z-index: 9999;
-  
+
     }
 
     .pos_button_unload:hover{
       font-size: 18px;
-    
+
     }
 .pos_button_circle:hover{
   font-size: 20px;
@@ -550,7 +550,7 @@ opacity: 100%;
   top:0%;
   position:absolute;
   z-index: 9999;
-  
+
 
 }
 
@@ -773,7 +773,7 @@ span {
     left:15%;
     background-repeat:no-repeat;
   }
-  
+
 
   .dropbtn_right {
     position: absolute;
@@ -843,20 +843,20 @@ width:100%;
   display: none;
 }
 .main_showtxt{
-  width:60vw;
+  width:57vw;
   left:30vw;
   overflow:auto;
   display: block;
 }
 
 .pclass{
-  font-size:18px; 
+  font-size:18px;
   position: relative;
   margin-right: 2em;
   margin-left: 2em;
-  background: rgba(255, 255, 255, 0.7); 
-  margin-top: 5em; 
-  margin-bottom: 5em; 
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 5em;
+  margin-bottom: 5em;
   text-align: left;
 }
 }
@@ -866,7 +866,7 @@ width:100%;
 @media (orientation:portrait)  {
   ul.errorlist {display:none;}
   .pos1{
-    background-color: rgb(238, 188, 235,0.7);   
+    background-color: rgb(238, 188, 235,0.7);
     color: black;
     position: absolute;
     height:45vh;
@@ -881,7 +881,7 @@ width:100%;
   }
 
   .pos1_show{
-    background-color: rgb(238, 188, 235,1);   
+    background-color: rgb(238, 188, 235,1);
     color: black;
     position: absolute;
     height:45vh;
@@ -925,7 +925,7 @@ width:100%;
     text-align: center;
     overflow: auto;
     transition: all 0.5s ease;
-    
+
   }
 
   .pos4{
@@ -939,7 +939,7 @@ width:100%;
     top:0vh;
     text-align: center;
     overflow: hidden;
-    
+
   }
 
   .pos5{
@@ -978,16 +978,16 @@ width:100%;
     position: relative;
     top: 1vh;
     right:0vw;
-  
-  
+
+
     }
 
 
  .pos_button2{
   background-color: black;
   color: white;
-  padding: 32px;
-  font-size: 150%;
+  padding: 16px;
+  font-size: 100%;
   border: none;
   border-radius: 30px;
   position: relative;
@@ -1016,20 +1016,20 @@ width:100%;
   .pos_button_unload{
     background-color: black;
     color: white;
-    padding: 36px;
-    font-size: 36px;
+    padding: 18px;
+    font-size: 18px;
     border: none;
     border-radius: 30px;
     position: absolute;
     top: 5px;
     right:5px;
     z-index: 9999;
-  
+
     }
 
     .pos_button_unload:hover{
       font-size: 18px;
-    
+
     }
 .pos_button_circle:hover{
   font-size: 20px;
@@ -1325,7 +1325,7 @@ width:100%;
   top:0%;
   position:absolute;
   z-index: 9999;
-  
+
 
 }
 
@@ -1411,7 +1411,7 @@ width:100%;
 }
 .smf{
   font-family: "Times New Roman";
-  font-size: 150%;
+  font-size: 100%;
 }
 
 
@@ -1419,13 +1419,13 @@ width:100%;
   width:70%;
   height:54px;
   font-family: "Times New Roman";
-  font-size: 150%;
+  font-size: 100%;
   padding: 5px;
 }
 .smf_pref_lb{
   width:100%;
   font-family: "Times New Roman";
-  font-size: 150%;
+  font-size: 100%;
   margin: 5px;
   text-align: center;
 }
@@ -1435,7 +1435,7 @@ width:100%;
   width:70%;
   height:54px;
   font-family: "Times New Roman";
-  font-size: 150%;
+  font-size: 100%;
 
 }
 .dropbtn66 {
@@ -1570,7 +1570,7 @@ span {
     left:15%;
     background-repeat:no-repeat;
   }
-  
+
 
   .dropbtn_right {
     position: absolute;
@@ -1643,19 +1643,19 @@ width:100%;
   display: none;
 }
 .main_showtxt{
-  width:100vw;
+  width:97vw;
   overflow:auto;
   display: block;
 }
 
 .pclass{
-  font-size:200%; 
+  font-size:200%;
   position: relative;
   margin-right: 2em;
   margin-left: 2em;
-  background: rgba(255, 255, 255, 0.7); 
-  margin-top: 5em; 
-  margin-bottom: 5em; 
+  background: rgba(255, 255, 255, 0.7);
+  margin-top: 5em;
+  margin-bottom: 5em;
   text-align: left;
 }
 }

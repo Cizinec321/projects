@@ -129,9 +129,9 @@ def seat_load_non_su(unm, lng):
     else:
         form_list=[]
         if lng=='EN':
-            out_html='<div class="dropbtn2_show"><form method="post"  name="refusal"><p class="smf_pref_lb">A seating plan has not been publishet yet. Please check again later.</p></form></div>'
+            out_html='<div class="pclass"><form method="post"  name="refusal"><p class="smf_pref_lb">A seating plan has not been publishet yet. Please check again later.</p></form></div>'
         else:
-            out_html='<div class="dropbtn2_show"><form method="post"  name="refusal"><p class="smf_pref_lb">Deocamndată nu a fost publicat un plan de așezare. Vă rugăm verificați mai tărziu.</p></form></div>'
+            out_html='<div class="pclass"><form method="post"  name="refusal"><p class="smf_pref_lb">Deocamndată nu a fost publicat un plan de așezare. Vă rugăm verificați mai tărziu.</p></form></div>'
     return out_html,form_list
 
 
