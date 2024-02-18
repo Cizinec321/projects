@@ -63,13 +63,13 @@ def gen_text(lng, sh):
 def get_party_full():
     User = get_user_model()
     users = User.objects.all()
-    outval='<table style="top: 5%;position: relative; table-layout: fixed ; width: 100%; min-width:886px "><tbody>'
+    outval='<table style="top: 2vh;position: relative; table-layout: fixed ; min-width:886px; padding-bottom: 150px; "><tbody>'
     but_count=0
     for x in  users:
         if str(x.username)!='admin':
             query_res=invitees.objects.filter(name__startswith=str(x.username)).count()  
             party_res=invitees.objects.filter(name__startswith=str(x.username),particpation='Da').count()    
-            outval=outval+'<tr><th style="text-align: left;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;"><label >'+str(query_res)+' Locuri</label></th>'+'<th style="text-align: left;"><label >'+str(party_res)+' Participanți</label></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Șterge</button></form></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(x.username)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+'>Detalii</button></form></th></tr>'
+            outval=outval+'<tr><th style="text-align: left;border-bottom: 1px solid pink;"><label >'+str(x.username)+'</label></th>'+'<th style="text-align: left;border-bottom: 1px solid pink;"><label >'+str(query_res)+' Locuri</label></th>'+'<th style="text-align: left;border-bottom: 1px solid pink;"><label >'+str(party_res)+' Participanți</label></th>'+'<th style="text-align: left;"><form method="post"><button type="submit" name="delete_participant" value="'+str(x.username)+'" class="pos_button2">Șterge</button></form></th>'+'<th style="text-align: left;"><form method="post"><button type="button" name="edit_participant" value="'+str(x.username)+'" class="pos_button2" onclick=document.getElementById('+chr(39)+str(but_count)+'utiz'+chr(39)+').className='+chr(39)+'dropbtn2_show'+chr(39)+';document.getElementById('+chr(39)+'register'+chr(39)+').className='+chr(39)+'dropbtn2'+chr(39)+'>Detalii</button></form></th></tr>'
             but_count=but_count+1
     outval=outval+'</tbody></table>'
     return outval
