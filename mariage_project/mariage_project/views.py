@@ -179,12 +179,12 @@ def home(request):
                                 invitees_inst.save()
                 else:
                                 invitees_inst = invitees()
-                                invitees_inst.name = str(username)
+                                invitees_inst.name = str(username)+' - seat 1'
                                 invitees_inst.unq_id = str(p1)
                                 invitees_inst.table_id = 'Not Assigned'
                                 invitees_inst.setting_name = 'Not Assigned'
                                 invitees_inst.e_mail = email
-                                invitees_inst.real_name= str(username)
+                                invitees_inst.real_name= str(username)+' - seat 1'
                                 invitees_inst.menu_prefference='Mănânc orice'
                                 invitees_inst.Freeform_comments=''
                                 invitees_inst.particpation='Nu'
